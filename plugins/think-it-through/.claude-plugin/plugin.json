@@ -1,0 +1,9 @@
+{
+  "name": "think-it-through",
+  "version": "0.1.0",
+  "description": "Lightweight conversation moves for steering how an AI explores, challenges, synthesizes, decides, plans, and explains.",
+  "author": {
+    "name": "thevzion",
+    "url": "https://github.com/thevzion"
+  }
+}
