@@ -2,7 +2,7 @@
 
 **Think freely. The agent keeps the map.**
 
-Think It Through is a lightweight conversation kit for human-led thinking with AI.
+Think It Through is a lightweight conversation kit for human-led thinking with AI, designed to fit the way you already work.
 
 Each exchange gives you new material to think with. Think It Through keeps that loop coherent and under your control.
 
@@ -18,7 +18,7 @@ Complex thoughts rarely arrive in order. You branch, revise, contradict yourself
 
 AI can respond well to each turn while losing the shape of the discussion across time. You compensate by repeating context and writing instructions about how the conversation should continue.
 
-Think It Through removes that steering work. You provide the thought. The kit gives the agent precise ways to clarify, connect, challenge, recover, and preserve it.
+You keep using your product process, research method, creative practice, or personal system. Think It Through removes the need to steer the agent in prose. You use its controls to tell the agent when to clarify, connect, challenge, recover, or preserve your thinking.
 
 The agent also returns connections and questions that can change what you think next. You keep or reshape what helps. Each response gives the agent richer working context and gives you a clearer mental model.
 
@@ -58,7 +58,7 @@ The defaults cover ordinary use. `think-on-*`, `think-with-*`, and `think-to-*` 
 
 **Your creativity leads. The agent helps you take it further.**
 
-Human and agent contribute different strengths:
+Your practice defines the work and its standards. Think It Through shapes how you and the agent work through it.
 
 | Human | Kit | Agent |
 | --- | --- | --- |
@@ -68,10 +68,12 @@ Human and agent contribute different strengths:
 
 ~~~mermaid
 flowchart LR
+    P["Your practice<br/>methods · criteria · outputs"]
     H["Human<br/>expresses · reacts · chooses"]
     C["Shared conversation<br/>topics · axes · open threads"]
     A["Agent<br/>reflects · connects · questions"]
-    K["Conversation kit<br/>map · moves · checkpoints"]
+    K["Think It Through<br/>map · moves · checkpoints"]
+    P -->|"defines the work"| C
     H -->|"thought"| C
     C -->|"working context"| A
     A -->|"new material"| H
@@ -492,7 +494,7 @@ Think It Through extends that idea across the life of complex thought. It adds s
 - **No hidden workflow.** A control may be suggested, but never applied silently.
 - **Context-preserving.** Narrow targets do not erase relevant history or dependencies.
 - **One control, one effect.** New skills earn their place through a distinct repeated outcome.
-- **Stable grammar, open vocabulary.** Individuals and teams can add controls while keeping the same compositional model.
+- **Stable grammar, adaptable practice.** Individuals and teams can use the kit inside their own methods and add controls without changing the compositional model.
 - **Portable and lightweight.** Precise wording does the work; no runtime is required.
 
 ## Repository
