@@ -1,16 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "think-it-through",
-  "version": "0.1.0",
-  "description": "Small, composable conversation moves for thinking with an AI.",
+  "version": "0.2.0",
+  "description": "A lightweight methodology for thinking freely while an AI keeps the conversation map.",
   "owner": {
     "name": "thevzion"
   },
   "plugins": [
     {
       "name": "think-it-through",
-      "version": "0.1.0",
-      "description": "Explore, challenge, synthesize, decide, plan, and visualize a topic without rewriting the same prompts.",
+      "version": "0.2.0",
+      "description": "Brainstorm and work through complex subjects while the agent maps topics, axes, tensions, and decisions.",
       "author": {
         "name": "thevzion"
       },

@@ -1,14 +1,18 @@
 ---
 name: think-it-through
-description: Start a user-led thinking session by clarifying the topic, intended outcome, and current angle without forcing a decision. Use only when the user invokes think-it-through or explicitly asks to think a subject through together.
+description: Open or resume a user-led thinking session by establishing the topic, intended outcome, and initial axes while keeping a coherent conversation map. Use only when the user invokes think-it-through or explicitly asks to think a complex subject through; never start it silently.
 ---
 
 # Think It Through
 
-- Establish the topic, the user's intent, and the current angle from existing context.
-- Ask at most one high-leverage question when the intent is unclear; otherwise begin the discussion.
-- Treat related shifts as new angles of the same topic rather than unrelated threads.
-- Surface assumptions, tensions, and useful distinctions without forcing closure.
-- Let the user steer with named moves or natural requests. Suggest a move when helpful, but do not apply it silently.
+Default scope: the topic supplied by the user, otherwise the current topic.
 
-Treat the conversation as the state. Do not invent a hidden workflow or produce a decision, plan, or action list unless the user requests that direction.
+- Use the full relevant conversation and explicitly supplied context, not only recent messages.
+- Establish or resume the topic, infer the intent, and give its axes stable human-readable labels.
+- Quietly maintain the map as the user jumps, returns, or contradicts earlier ideas; surface it only when useful.
+- Ask at most one high-leverage question when the intended outcome is unclear; otherwise begin thinking.
+- Without a subject, show a compact palette of the available moves and ask what to think through.
+
+A pending `think-on-*` selector overrides the default for this move only. Keep the response inside that scope, but surface outside dependencies that materially change it.
+
+Let the user steer. Suggest a move when helpful, but do not apply it silently or force a decision, recap, proposal, or plan.
