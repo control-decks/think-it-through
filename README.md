@@ -4,19 +4,23 @@
 
 Think It Through is a lightweight conversation kit for human-led thinking with AI.
 
+Each exchange gives you new material to think with. Think It Through keeps that loop coherent and under your control.
+
 It started with Grill Me: one short command for one precise, reusable conversation contract. Think It Through extends that principle across the whole conversation.
 
-**Write the thought—not the instructions for how to discuss it.**
-
-No workflow to learn. No special prompt format. Start by talking.
+Start by talking. Learn the controls only when you need them.
 
 ## Why it exists
+
+**Write the thought—not the instructions for how to discuss it.**
 
 Complex thoughts rarely arrive in order. You branch, revise, contradict yourself, and discover late that an earlier idea mattered.
 
 AI can respond well to each turn while losing the shape of the discussion across time. You compensate by repeating context and writing instructions about how the conversation should continue.
 
 Think It Through removes that steering work. You provide the thought. The kit gives the agent precise ways to clarify, connect, challenge, recover, and preserve it.
+
+The agent also returns connections and questions that can change what you think next. You keep or reshape what helps. Each response gives the agent richer working context and gives you a clearer mental model.
 
 ## Learn it in 30 seconds
 
@@ -52,30 +56,35 @@ The defaults cover ordinary use. `think-on-*`, `think-with-*`, and `think-to-*` 
 
 ## How it works
 
-**Human divergence, agent-supported convergence.**
+**Your creativity leads. The agent helps you take it further.**
 
 Human and agent contribute different strengths:
 
 | Human | Kit | Agent |
 | --- | --- | --- |
-| Intuition, taste, intent, lived context | Small explicit steering controls | Working memory, structure, comparison, compression |
-| Divergent and nonlinear thought | Shared interaction contracts | Connections across topics and axes |
-| Final judgment and ownership | No hidden workflow | Best-effort convergence without silent direction |
+| Curiosity, intuition, taste, lived context | A living map and explicit controls | Working memory, structure, comparison, compression |
+| Expresses, reacts, revises, and combines | Shared interaction contracts | Connections, questions, and possibilities |
+| Meaning, judgment, and ownership | No hidden workflow | Support without silent direction |
 
 ~~~mermaid
 flowchart LR
-    H["Human<br/>unloads · jumps · revises · chooses"]
-    K["Conversation kit<br/>moves · targets · modifiers · projections"]
-    A["Agent<br/>extracts · connects · maps · returns"]
-    H -->|"raw thought"| A
+    H["Human<br/>expresses · reacts · chooses"]
+    C["Shared conversation<br/>topics · axes · open threads"]
+    A["Agent<br/>reflects · connects · questions"]
+    K["Conversation kit<br/>map · moves · checkpoints"]
+    H -->|"thought"| C
+    C -->|"working context"| A
+    A -->|"new material"| H
+    H -->|"response enriches context"| C
     H -->|"explicit steering"| K
-    K -->|"precise control"| A
-    A -->|"clarity without ownership"| H
+    K -. "keeps the map coherent" .-> C
 ~~~
 
-The agent is more than a secretary and less than an autonomous director. It acts as a cartographer and working memory: it extracts structure, reconnects related ideas, preserves unresolved tension, and gives the shape back to the human.
+You supply the interest, the lived context, and the judgment. The agent returns material you can use: a connection between distant ideas, a sharper question, or a possibility you had not considered.
 
-The human still decides what matters and where the conversation goes.
+As you react, your own model becomes clearer and the agent receives richer working context for its next response. The kit preserves the accumulated shape so a new idea can build on an earlier one instead of replacing it.
+
+This feedback loop uses only the conversation and material still available. The agent does not train on the exchange or gain memory across separate conversations.
 
 ### Activate late, keep the living map
 
@@ -183,13 +192,15 @@ A selector changes the target once. It never removes evidence, history, or depen
 | `/think-it-through` | Activate the protocol, adopt available history, and maintain the living map. | Current focus or supplied subject; adoption stays conversation-wide |
 | `/think-distill` | Clarify the latest message, then respond or pass it to a co-invoked control. | Latest human message in context |
 | `/think-discuss` | Explore and connect without forcing closure. | Thought currently being expressed |
-| `/think-interview` | Build understanding with one focused question at a time. | Smallest current subject with a material understanding gap |
-| `/think-grill` | Stress-test assumptions, evidence, tradeoffs, and failure modes. | Current testable proposal, assumption, decision, or plan |
+| `/think-interview` | Run a neutral multi-turn interview, one focused question at a time, until shared understanding. | Smallest current subject with a material understanding gap |
+| `/think-grill` | Walk a decision tree relentlessly, one question and recommendation at a time. | Current testable proposal, assumption, decision, design, or plan |
 | `/think-recap` | Recover the map, then give a transversal digest. | Full available conversation |
 | `/think-propose` | Put forward one strong direction without deciding for the human. | Current open question or decision |
 | `/think-next` | Recommend the next one to three highest-leverage actions. | Latest actionable result, otherwise current focus |
 
-`/think-interview` tries to understand. `/think-grill` tries to find what does not hold and pairs each question with a current assessment or recommendation.
+`/think-interview` and `/think-grill` continue across the user's answers without reinvocation. They ask one question at a time and retain their resolved target until they finish, the user stops or redirects, or another control begins. The pipeline line appears only when the loop starts.
+
+`/think-interview` seeks understanding without recommending a direction. `/think-grill` tests the target and provides a recommended answer with every question. Both investigate discoverable facts before asking the user.
 
 ### Target selectors
 
@@ -225,13 +236,13 @@ Use the kit at the moment a human need appears. These are recipes, not a require
 
 | Human moment | Use | What it gives you |
 | --- | --- | --- |
-| This conversation just became important | `/think-it-through` | Adopts available history and starts the quiet living map |
+| This conversation became important | `/think-it-through` | Adopts available history and starts the quiet living map |
 | I know what I mean, but cannot phrase it | `/think-distill` | A faithful clarification followed by a response |
 | I want to keep exploring without being pushed | `/think-discuss` | Active, neutral development of the current thought |
 | I lost the overall shape | `/think-recap` | Conversation-wide map, then coherent digest |
 | I need to see how the parts connect | `/think-recap + /think-with-diagrams` | The same recap with the smallest useful diagram |
-| The agent still does not understand enough | `/think-interview` | One targeted understanding question at a time |
-| This branch may be fragile | `/think-on-axis <name> + /think-grill` | One demanding question plus a current recommendation |
+| The agent still does not understand enough | `/think-interview` | A neutral interview that continues one question at a time |
+| This branch may be fragile | `/think-on-axis <name> + /think-grill` | A decision-tree grill with one recommendation per question |
 | I need a concrete direction | `/think-propose` | One strong proposal and its decisive tradeoff |
 | I need to inspect the logic | `/think-propose + /think-with-reasoning-map` | Claims, assumptions, inferences, evidence, and objections |
 | I want to preserve the thinking | `/think-to-brief` | A neutral, reusable Thinking Brief |
@@ -255,7 +266,7 @@ More useful compositions:
 /think-recap + /think-to-brief
 /think-grill + /think-with-reasoning-map
 /think-recap + /think-with-reasoning-map
-/think-on-topic v0.4 + /think-to-plan + /think-with-diagrams
+/think-on-topic v0.5 + /think-to-plan + /think-with-diagrams
 ~~~
 
 ## From conversation to artifact
@@ -334,6 +345,14 @@ That distinction separates the product from the mechanism: the skills are tiny,
 but together they establish a reusable interaction vocabulary...
 ~~~
 
+**Human**
+
+> That makes me think the map is more than memory. An agent response can trigger
+> another idea, and my reaction gives the next response better context. The kit
+> could make that loop steerable.
+
+The human turned material from the agent's response into a new product direction.
+
 ### Recover the whole shape
 
 ~~~text
@@ -371,14 +390,28 @@ The recap maps every material axis first, then gives a transversal digest. Its d
 ~~~text
 On: axis “Zero-config promise” · Move: think-grill
 
-Current assessment: the defaults make first use simple, but fifteen visible names
-can still make the kit feel like a command framework.
+Recommendation: teach four core moves before exposing the complete palette.
 
 Question: what can a new user accomplish before learning any family beyond the
 four core moves?
 ~~~
 
-The target is narrow. The evidence is not: dependencies elsewhere in the conversation remain available.
+**Human**
+
+> They can discuss, recap, grill, and ask for a proposal. The other controls only
+> need to appear when the reader wants more precision.
+
+**Agent**
+
+~~~text
+Recommendation: make those four moves the first visible toolkit and introduce
+targets, modifiers, and artifacts through the cookbook.
+
+Question: does the 30-second example show a useful result from those four moves,
+or does it only list their names?
+~~~
+
+The grill continues without another invocation. Its target stays narrow while evidence and dependencies from the rest of the conversation remain available.
 
 ### Choose a direction and expose its logic
 
@@ -451,12 +484,15 @@ Think It Through extends that idea across the life of complex thought. It adds s
 **Grill Me was the seed. Think It Through is the system around it.**
 
 - **Human-led.** The user owns intent, direction, and final judgment.
+- **Human creativity first.** The agent supplies connections and questions; the user decides what they mean and what to do with them.
+- **Compounding conversation.** Each response can clarify the user's mental model and improve the working context for the next exchange.
 - **Zero-config first.** Talk normally; learn controls only as needs appear.
 - **Silent structure.** The map supports conversation instead of interrupting it.
 - **Progressive control.** Defaults serve ordinary use; targets, modifiers, and artifacts serve precise use.
 - **No hidden workflow.** A control may be suggested, but never applied silently.
 - **Context-preserving.** Narrow targets do not erase relevant history or dependencies.
 - **One control, one effect.** New skills earn their place through a distinct repeated outcome.
+- **Stable grammar, open vocabulary.** Individuals and teams can add controls while keeping the same compositional model.
 - **Portable and lightweight.** Precise wording does the work; no runtime is required.
 
 ## Repository

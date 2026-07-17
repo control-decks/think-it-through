@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.4.0",
-  "description": "A lightweight conversation kit for human-led thinking with AI: steer messy thought, keep its map, and project it into briefs or plans.",
+  "version": "0.5.0",
+  "description": "A lightweight conversation kit for human-led thinking with AI: keep a living map, build through feedback, and project the result into briefs or plans.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
@@ -17,6 +17,11 @@
     "steering",
     "mapping",
     "human-led-thinking",
+    "human-ai-collaboration",
+    "augmented-intelligence",
+    "feedback-loop",
+    "interview",
+    "decision-making",
     "briefs",
     "thinking",
     "planning"
@@ -25,7 +30,7 @@
   "interface": {
     "displayName": "Think It Through",
     "shortDescription": "Think freely. The agent keeps the map.",
-    "longDescription": "A zero-config conversation kit for human-led thinking: unload raw ideas, steer the agent with lightweight controls, recover the full map, and project selected thinking into reusable briefs or execution plans.",
+    "longDescription": "A zero-config conversation kit for human-led thinking: unload raw ideas, build through a steerable feedback loop, keep the full map, and project selected thinking into reusable briefs or execution plans.",
     "developerName": "thevzion",
     "category": "Productivity",
     "capabilities": [],

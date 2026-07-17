@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.4.0",
-  "description": "A lightweight conversation kit for human-led thinking with AI: steer messy thought, keep its map, and project it into briefs or plans.",
+  "version": "0.5.0",
+  "description": "A lightweight conversation kit for human-led thinking with AI: keep a living map, build through feedback, and project the result into briefs or plans.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
