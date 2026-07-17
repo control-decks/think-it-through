@@ -4,38 +4,19 @@
 
 Think It Through is a lightweight conversation kit for human-led thinking with AI.
 
+It started with Grill Me: one short command for one precise, reusable conversation contract. Think It Through extends that principle across the whole conversation.
+
 **Write the thought—not the instructions for how to discuss it.**
-
-When a subject is complex, creative, or not yet well formed, the useful part of your message is often the thought itself. The rest is steering boilerplate: “help me unpack this,” “remember what I said earlier,” “challenge that part,” “now bring it all together.”
-
-Think It Through replaces that repeated prose with a small palette of reusable conversation controls. You can unload ideas as they arrive, jump between threads, contradict yourself, and return to something from twenty messages ago. The agent keeps a best-effort map of the available conversation and applies a precise move only when you ask.
 
 No workflow to learn. No special prompt format. Start by talking.
 
-## Human divergence, agent-supported convergence
+## Why it exists
 
-Human and agent contribute different strengths:
+Complex thoughts rarely arrive in order. You branch, revise, contradict yourself, and discover late that an earlier idea mattered.
 
-| Human | Kit | Agent |
-| --- | --- | --- |
-| Intuition, taste, intent, lived context | Small explicit steering controls | Working memory, structure, comparison, compression |
-| Divergent and nonlinear thought | Shared interaction contracts | Connections across topics and axes |
-| Final judgment and ownership | No hidden workflow | Best-effort convergence without silent direction |
+AI can respond well to each turn while losing the shape of the discussion across time. You compensate by repeating context and writing instructions about how the conversation should continue.
 
-~~~mermaid
-flowchart LR
-    H["Human<br/>unloads · jumps · revises · chooses"]
-    K["Conversation kit<br/>moves · targets · modifiers · projections"]
-    A["Agent<br/>extracts · connects · maps · returns"]
-    H -->|"raw thought"| A
-    H -->|"explicit steering"| K
-    K -->|"precise control"| A
-    A -->|"clarity without ownership"| H
-~~~
-
-The agent is more than a secretary and less than an autonomous director. It acts as a cartographer and working memory: it extracts structure, reconnects related ideas, preserves unresolved tension, and gives the shape back to the human.
-
-The human still decides what matters and where the conversation goes.
+Think It Through removes that steering work. You provide the thought. The kit gives the agent precise ways to clarify, connect, challenge, recover, and preserve it.
 
 ## Learn it in 30 seconds
 
@@ -69,7 +50,34 @@ Natural language works too: “recap the whole conversation” or “grill this 
 
 The defaults cover ordinary use. `think-on-*`, `think-with-*`, and `think-to-*` are progressive controls for the moments when you want precision, representation, or a reusable artifact.
 
-## Activate late, keep the living map
+## How it works
+
+**Human divergence, agent-supported convergence.**
+
+Human and agent contribute different strengths:
+
+| Human | Kit | Agent |
+| --- | --- | --- |
+| Intuition, taste, intent, lived context | Small explicit steering controls | Working memory, structure, comparison, compression |
+| Divergent and nonlinear thought | Shared interaction contracts | Connections across topics and axes |
+| Final judgment and ownership | No hidden workflow | Best-effort convergence without silent direction |
+
+~~~mermaid
+flowchart LR
+    H["Human<br/>unloads · jumps · revises · chooses"]
+    K["Conversation kit<br/>moves · targets · modifiers · projections"]
+    A["Agent<br/>extracts · connects · maps · returns"]
+    H -->|"raw thought"| A
+    H -->|"explicit steering"| K
+    K -->|"precise control"| A
+    A -->|"clarity without ownership"| H
+~~~
+
+The agent is more than a secretary and less than an autonomous director. It acts as a cartographer and working memory: it extracts structure, reconnects related ideas, preserves unresolved tension, and gives the shape back to the human.
+
+The human still decides what matters and where the conversation goes.
+
+### Activate late, keep the living map
 
 You do not need to start a conversation with Think It Through. Invoke `/think-it-through` after the conversation becomes worth preserving:
 
@@ -102,7 +110,188 @@ Conversation
 
 Think It Through cannot recover unavailable context or remember across separate conversations. A Thinking Brief is the portable handoff when the thinking needs to outlive the chat.
 
-## The conversation that designed the kit
+## Install and invoke
+
+This README uses portable `/think-*` notation. The clients expose the same shared `SKILL.md` files with different prefixes:
+
+| Portable notation | Codex | Claude Code |
+| --- | --- | --- |
+| `/think-recap` | `$think-it-through:think-recap` | `/think-it-through:think-recap` |
+
+### Codex
+
+~~~bash
+codex plugin marketplace add thevzion/think-it-through
+codex plugin add think-it-through@think-it-through
+~~~
+
+Example: `$think-it-through:think-recap Recover the full shape of this conversation.`
+
+### Claude Code
+
+~~~bash
+claude plugin marketplace add thevzion/think-it-through --scope user
+claude plugin install think-it-through@think-it-through --scope user
+~~~
+
+Example: `/think-it-through:think-recap Recover the full shape of this conversation.`
+
+Explicit natural-language requests work too. The names are concise handles and shared vocabulary, not syntax you must use.
+
+## The kit
+
+Each family answers a different question:
+
+| Family | Question | Examples |
+| --- | --- | --- |
+| `/think-*` | What conversational move should happen? | `/think-discuss`, `/think-recap` |
+| `/think-on-*` | What should the control target? | `/think-on-topic`, `/think-on-axis` |
+| `/think-with-*` | What representation should accompany the result? | `/think-with-diagrams`, `/think-with-reasoning-map` |
+| `/think-to-*` | What reusable artifact should the thinking become? | `/think-to-brief`, `/think-to-plan` |
+
+The composition model is:
+
+~~~text
+optional target + move or projection + optional modifier
+~~~
+
+The agent makes explicit controls visible:
+
+~~~text
+On: <target> · Move: <operation>
+On: <target> · Move: <operation> · With: diagrams
+On: <target> · To: brief|plan · With: reasoning-map|diagrams
+~~~
+
+Ordinary conversation remains silent. A selector invoked alone only replies `Scope set: …` and applies to the next explicit control, then expires.
+
+### Context is not target
+
+Every skill uses:
+
+~~~text
+Context: the full relevant conversation and explicitly supplied material.
+Default target: the part the result should center on.
+~~~
+
+A selector changes the target once. It never removes evidence, history, or dependencies needed for correct reasoning.
+
+### Session and moves
+
+| Skill | Effect | Default target |
+| --- | --- | --- |
+| `/think-it-through` | Activate the protocol, adopt available history, and maintain the living map. | Current focus or supplied subject; adoption stays conversation-wide |
+| `/think-distill` | Clarify the latest message, then respond or pass it to a co-invoked control. | Latest human message in context |
+| `/think-discuss` | Explore and connect without forcing closure. | Thought currently being expressed |
+| `/think-interview` | Build understanding with one focused question at a time. | Smallest current subject with a material understanding gap |
+| `/think-grill` | Stress-test assumptions, evidence, tradeoffs, and failure modes. | Current testable proposal, assumption, decision, or plan |
+| `/think-recap` | Recover the map, then give a transversal digest. | Full available conversation |
+| `/think-propose` | Put forward one strong direction without deciding for the human. | Current open question or decision |
+| `/think-next` | Recommend the next one to three highest-leverage actions. | Latest actionable result, otherwise current focus |
+
+`/think-interview` tries to understand. `/think-grill` tries to find what does not hold and pairs each question with a current assessment or recommendation.
+
+### Target selectors
+
+| Skill | One-shot target |
+| --- | --- |
+| `/think-on-conversation` | Full available conversation |
+| `/think-on-topic <name>` | Named topic, otherwise clearly current topic |
+| `/think-on-axis <name>` | Named axis, otherwise clearly current axis |
+
+Selectors work in the same request or before the next explicit move, modifier, or projection. They expire after one use and never narrow the adopted history.
+
+### Representation modifiers
+
+| Skill | Effect | Default target |
+| --- | --- | --- |
+| `/think-with-diagrams` | Add the smallest useful flow, tree, timeline, matrix, table, or Mermaid diagram without changing substance. | Co-invoked result, otherwise latest substantive result or focus |
+| `/think-with-reasoning-map` | Expose claims, evidence, premises, assumptions, inferences, implications, and objections without inventing logic. | Co-invoked reasoning, otherwise current proposal or decision |
+
+Modifiers apply immediately to the co-invoked or current result. They do not create a persistent mode.
+
+`think-with-reasoning-map` uses an argument map for argumentative claims and a broader reasoning map for decisions or systems. If there is no identifiable reasoning, it asks one focused question instead of fabricating a chain.
+
+### Artifact projections
+
+| Skill | Effect | Default target |
+| --- | --- | --- |
+| `/think-to-brief` | Project selected thinking into a neutral, reusable Thinking Brief. | Full conversation, unless an explicit co-invoked result is selected |
+| `/think-to-plan` | Project an accepted or explicitly provisional direction into an Execution Plan. | Accepted or explicitly provisional executable direction |
+
+## Composition cookbook
+
+Use the kit at the moment a human need appears. These are recipes, not a required sequence.
+
+| Human moment | Use | What it gives you |
+| --- | --- | --- |
+| This conversation just became important | `/think-it-through` | Adopts available history and starts the quiet living map |
+| I know what I mean, but cannot phrase it | `/think-distill` | A faithful clarification followed by a response |
+| I want to keep exploring without being pushed | `/think-discuss` | Active, neutral development of the current thought |
+| I lost the overall shape | `/think-recap` | Conversation-wide map, then coherent digest |
+| I need to see how the parts connect | `/think-recap + /think-with-diagrams` | The same recap with the smallest useful diagram |
+| The agent still does not understand enough | `/think-interview` | One targeted understanding question at a time |
+| This branch may be fragile | `/think-on-axis <name> + /think-grill` | One demanding question plus a current recommendation |
+| I need a concrete direction | `/think-propose` | One strong proposal and its decisive tradeoff |
+| I need to inspect the logic | `/think-propose + /think-with-reasoning-map` | Claims, assumptions, inferences, evidence, and objections |
+| I want to preserve the thinking | `/think-to-brief` | A neutral, reusable Thinking Brief |
+| We made a decision; now make it executable | `/think-to-plan` | A validated Execution Plan, not implementation |
+
+One possible map of the moments is:
+
+~~~text
+Unload → Explore → Orient → Challenge → Choose → Preserve
+                                             └────→ Act
+~~~
+
+This is a map, not a workflow. Start anywhere, skip anything, loop backward, or continue talking without controls.
+
+More useful compositions:
+
+~~~text
+/think-distill + /think-propose
+/think-on-topic Product + /think-recap + /think-with-diagrams
+/think-on-conversation + /think-to-brief
+/think-recap + /think-to-brief
+/think-grill + /think-with-reasoning-map
+/think-recap + /think-with-reasoning-map
+/think-on-topic v0.4 + /think-to-plan + /think-with-diagrams
+~~~
+
+## From conversation to artifact
+
+Recap, Thinking Brief, and Execution Plan solve different problems:
+
+| Result | Purpose | Persistence | Direction |
+| --- | --- | --- | --- |
+| `/think-recap` | Conversational checkpoint: `map → digest` | None | Reflects; does not add one |
+| `/think-to-brief` | Neutral snapshot for reuse | Explicit artifact or inline Markdown | Preserves understanding |
+| `/think-to-plan` | Operational projection of an executable direction | Native plan, inline, or approved durable destination | Organizes execution |
+
+`/think-recap` defaults to the full conversation. Use `/think-on-topic` or `/think-on-axis` only when you intentionally want a smaller result.
+
+`/think-to-brief` reads the selected living map directly; it does not run an invisible recap. `/think-recap + /think-to-brief` explicitly materializes that checkpoint.
+
+A Thinking Brief follows `Conversation → Topics → Axes`, then adds purpose, audience, transversal synthesis, decisions, tensions, open questions, and a resumption point. A product spec, design document, research brief, or decision note is a contextual form of the same artifact.
+
+Brief destination behavior follows four rules:
+
+| Destination state | Behavior |
+| --- | --- |
+| No destination | Return complete portable Markdown inline immediately |
+| Destination inferred | Show a materialization brief, then wait for confirmation |
+| Destination explicit and direct creation requested | Create directly |
+| Destination already exists | Require explicit overwrite permission |
+
+A materialization brief shows the overview, outline, inclusions, exclusions, format, and proposed destination. Audience and contextual form are inferred unless ambiguity would materially change the result.
+
+`/think-to-plan` uses the agent's native planning surface when available. Without an identifiable executable direction, it asks one question instead of inventing one. It preserves whether the direction is accepted or provisional, waits for validation before implementation, and persists only after approval when an explicit durable destination exists.
+
+**A plan is never permission to execute.**
+
+Both artifacts may include the smallest useful diagrams. Adding `/think-with-diagrams` makes the artifact diagram-led. Adding `/think-with-reasoning-map` makes its logic explicit.
+
+## Built with itself: the conversation that designed the kit
 
 This shortened and generalized example is adapted from the real conversation that produced Think It Through.
 
@@ -203,7 +392,8 @@ The target is narrow. The evidence is not: dependencies elsewhere in the convers
 On: open product decision · Move: think-propose · With: reasoning-map
 
 Proposal: present Think It Through as a zero-config conversation kit, teach only
-“talk, invoke a move, add optional control,” and move the taxonomy below the real example.
+“talk, invoke a move, add optional control” before introducing the taxonomy, then
+use the full example as proof after the reference.
 
 Human thought is nonlinear
     ├── therefore activation must work late
@@ -252,196 +442,13 @@ Unload competing constraints for an API and deployment model. Activate once the 
 
 Unload observations, fragments, counterarguments, and possible themes. Use `/think-distill` on a difficult thesis, `/think-discuss` while it is still forming, `/think-recap` to recover the cross-theme shape, and `/think-to-brief` to preserve a research brief or creative direction for the next session.
 
-## Composition cookbook
+## Origin and philosophy
 
-Use the kit at the moment a human need appears. These are recipes, not a required sequence.
-
-| Human moment | Use | What it gives you |
-| --- | --- | --- |
-| This conversation just became important | `/think-it-through` | Adopts available history and starts the quiet living map |
-| I know what I mean, but cannot phrase it | `/think-distill` | A faithful clarification followed by a response |
-| I want to keep exploring without being pushed | `/think-discuss` | Active, neutral development of the current thought |
-| I lost the overall shape | `/think-recap` | Conversation-wide map, then coherent digest |
-| I need to see how the parts connect | `/think-recap + /think-with-diagrams` | The same recap with the smallest useful diagram |
-| The agent still does not understand enough | `/think-interview` | One targeted understanding question at a time |
-| This branch may be fragile | `/think-on-axis <name> + /think-grill` | One demanding question plus a current recommendation |
-| I need a concrete direction | `/think-propose` | One strong proposal and its decisive tradeoff |
-| I need to inspect the logic | `/think-propose + /think-with-reasoning-map` | Claims, assumptions, inferences, evidence, and objections |
-| I want to preserve the thinking | `/think-to-brief` | A neutral, reusable Thinking Brief |
-| We made a decision; now make it executable | `/think-to-plan` | A validated Execution Plan, not implementation |
-
-One possible map of the moments is:
-
-~~~text
-Unload → Explore → Orient → Challenge → Choose → Preserve
-                                             └────→ Act
-~~~
-
-This is a map, not a workflow. Start anywhere, skip anything, loop backward, or continue talking without controls.
-
-More useful compositions:
-
-~~~text
-/think-distill + /think-propose
-/think-on-topic Product + /think-recap + /think-with-diagrams
-/think-on-conversation + /think-to-brief
-/think-recap + /think-to-brief
-/think-grill + /think-with-reasoning-map
-/think-recap + /think-with-reasoning-map
-/think-on-topic v0.4 + /think-to-plan + /think-with-diagrams
-~~~
-
-## The grammar
-
-Each family answers a different question:
-
-| Family | Question | Examples |
-| --- | --- | --- |
-| `/think-*` | What conversational move should happen? | `/think-discuss`, `/think-recap` |
-| `/think-on-*` | What should the control target? | `/think-on-topic`, `/think-on-axis` |
-| `/think-with-*` | What representation should accompany the result? | `/think-with-diagrams`, `/think-with-reasoning-map` |
-| `/think-to-*` | What reusable artifact should the thinking become? | `/think-to-brief`, `/think-to-plan` |
-
-The composition model is:
-
-~~~text
-optional target + move or projection + optional modifier
-~~~
-
-The agent makes explicit controls visible:
-
-~~~text
-On: <target> · Move: <operation>
-On: <target> · Move: <operation> · With: diagrams
-On: <target> · To: brief|plan · With: reasoning-map|diagrams
-~~~
-
-Ordinary conversation remains silent. A selector invoked alone only replies `Scope set: …` and applies to the next explicit control, then expires.
-
-### Context is not target
-
-Every skill uses:
-
-~~~text
-Context: the full relevant conversation and explicitly supplied material.
-Default target: the part the result should center on.
-~~~
-
-A selector changes the target once. It never removes evidence, history, or dependencies needed for correct reasoning.
-
-### Session and moves
-
-| Skill | Effect | Default target |
-| --- | --- | --- |
-| `/think-it-through` | Activate the protocol, adopt available history, and maintain the living map. | Current focus or supplied subject; adoption stays conversation-wide |
-| `/think-distill` | Clarify the latest message, then respond or pass it to a co-invoked control. | Latest human message in context |
-| `/think-discuss` | Explore and connect without forcing closure. | Thought currently being expressed |
-| `/think-interview` | Build understanding with one focused question at a time. | Smallest current subject with a material understanding gap |
-| `/think-grill` | Stress-test assumptions, evidence, tradeoffs, and failure modes. | Current testable proposal, assumption, decision, or plan |
-| `/think-recap` | Recover the map, then give a transversal digest. | Full available conversation |
-| `/think-propose` | Put forward one strong direction without deciding for the human. | Current open question or decision |
-| `/think-next` | Recommend the next one to three highest-leverage actions. | Latest actionable result, otherwise current focus |
-
-`/think-interview` tries to understand. `/think-grill` tries to find what does not hold and pairs each question with a current assessment or recommendation.
-
-### Target selectors
-
-| Skill | One-shot target |
-| --- | --- |
-| `/think-on-conversation` | Full available conversation |
-| `/think-on-topic <name>` | Named topic, otherwise clearly current topic |
-| `/think-on-axis <name>` | Named axis, otherwise clearly current axis |
-
-Selectors work in the same request or before the next explicit move, modifier, or projection. They expire after one use and never narrow the adopted history.
-
-### Representation modifiers
-
-| Skill | Effect | Default target |
-| --- | --- | --- |
-| `/think-with-diagrams` | Add the smallest useful flow, tree, timeline, matrix, table, or Mermaid diagram without changing substance. | Co-invoked result, otherwise latest substantive result or focus |
-| `/think-with-reasoning-map` | Expose claims, evidence, premises, assumptions, inferences, implications, and objections without inventing logic. | Co-invoked reasoning, otherwise current proposal or decision |
-
-Modifiers apply immediately to the co-invoked or current result. They do not create a persistent mode.
-
-`think-with-reasoning-map` uses an argument map for argumentative claims and a broader reasoning map for decisions or systems. If there is no identifiable reasoning, it asks one focused question instead of fabricating a chain.
-
-### Artifact projections
-
-| Skill | Effect | Default target |
-| --- | --- | --- |
-| `/think-to-brief` | Project selected thinking into a neutral, reusable Thinking Brief. | Full conversation, unless an explicit co-invoked result is selected |
-| `/think-to-plan` | Project an accepted or explicitly provisional direction into an Execution Plan. | Accepted or explicitly provisional executable direction |
-
-## Recap, Thinking Brief, and Execution Plan
-
-They solve different problems:
-
-| Result | Purpose | Persistence | Direction |
-| --- | --- | --- | --- |
-| `/think-recap` | Conversational checkpoint: `map → digest` | None | Reflects; does not add one |
-| `/think-to-brief` | Neutral snapshot for reuse | Explicit artifact or inline Markdown | Preserves understanding |
-| `/think-to-plan` | Operational projection of an executable direction | Native plan, inline, or approved durable destination | Organizes execution |
-
-`/think-recap` defaults to the full conversation. Use `/think-on-topic` or `/think-on-axis` only when you intentionally want a smaller result.
-
-`/think-to-brief` reads the selected living map directly; it does not run an invisible recap. `/think-recap + /think-to-brief` explicitly materializes that checkpoint.
-
-A Thinking Brief follows `Conversation → Topics → Axes`, then adds purpose, audience, transversal synthesis, decisions, tensions, open questions, and a resumption point. A product spec, design document, research brief, or decision note is a contextual form of the same artifact.
-
-Brief destination behavior follows four rules:
-
-| Destination state | Behavior |
-| --- | --- |
-| No destination | Return complete portable Markdown inline immediately |
-| Destination inferred | Show a materialization brief, then wait for confirmation |
-| Destination explicit and direct creation requested | Create directly |
-| Destination already exists | Require explicit overwrite permission |
-
-A materialization brief shows the overview, outline, inclusions, exclusions, format, and proposed destination. Audience and contextual form are inferred unless ambiguity would materially change the result.
-
-`/think-to-plan` uses the agent's native planning surface when available. Without an identifiable executable direction, it asks one question instead of inventing one. It preserves whether the direction is accepted or provisional, waits for validation before implementation, and persists only after approval when an explicit durable destination exists.
-
-**A plan is never permission to execute.**
-
-Both artifacts may include the smallest useful diagrams. Adding `/think-with-diagrams` makes the artifact diagram-led. Adding `/think-with-reasoning-map` makes its logic explicit.
-
-## From Grill Me to a conversation kit
-
-The seed was a small but powerful interaction: **Grill Me**. It worked because it was not a topic-specific mega-prompt. It gave a short name to a precise, reusable conversation contract: challenge one consequential branch at a time.
+Grill Me supplied the seed: a short name for a precise, reusable conversation contract. It challenges one consequential branch at a time without a topic-specific mega-prompt.
 
 Think It Through extends that idea across the life of complex thought. It adds small, composable controls to clarify, explore, understand, map, synthesize, propose, represent, preserve, and plan.
 
 **Grill Me was the seed. Think It Through is the system around it.**
-
-## Install and invoke
-
-This README uses portable `/think-*` notation. The clients expose the same shared `SKILL.md` files with different prefixes:
-
-| Portable notation | Codex | Claude Code |
-| --- | --- | --- |
-| `/think-recap` | `$think-it-through:think-recap` | `/think-it-through:think-recap` |
-
-### Codex
-
-~~~bash
-codex plugin marketplace add thevzion/think-it-through
-codex plugin add think-it-through@think-it-through
-~~~
-
-Example: `$think-it-through:think-recap Recover the full shape of this conversation.`
-
-### Claude Code
-
-~~~bash
-claude plugin marketplace add thevzion/think-it-through --scope user
-claude plugin install think-it-through@think-it-through --scope user
-~~~
-
-Example: `/think-it-through:think-recap Recover the full shape of this conversation.`
-
-Explicit natural-language requests work too. The names are concise handles and shared vocabulary, not syntax you must use.
-
-## Philosophy
 
 - **Human-led.** The user owns intent, direction, and final judgment.
 - **Zero-config first.** Talk normally; learn controls only as needs appear.
@@ -466,7 +473,7 @@ plugins/think-it-through/
 
 There is one portable skill core for Codex and Claude Code. There are no per-skill metadata files, generated copies, scripts, assets, build steps, dependencies, hooks, MCP servers, or runtime.
 
-The kit evolves through use: practice a control, tighten its contract, merge or remove overlap, and add nothing until repeated conversations reveal a genuinely distinct effect.
+The kit evolves through use: practice a control, tighten its contract, merge or remove overlap, and add nothing until repeated conversations reveal a distinct effect.
 
 ## License
 
