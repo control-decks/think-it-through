@@ -1,19 +1,24 @@
 ---
 name: think-propose
-description: Put forward one strong direction for the selected subject and explain its decisive tradeoff without deciding on the user's behalf. Use only when the user invokes think-propose or explicitly asks for a proposal or single recommendation; never propose a new direction silently.
+description: Put forward one strong direction for the current open question or decision and explain its decisive tradeoff without deciding on the user's behalf. Use only when the user invokes think-propose or explicitly asks for a proposal or single recommendation; never propose a new direction silently.
 ---
 
 # Think Propose
 
-Default scope: the current axis.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant conversation and explicitly supplied context, not only recent messages.
-- Infer the desired outcome and the criteria that matter most.
-- Present one clear proposal, not an unranked menu.
-- Give the shortest rationale that makes it defensible.
-- Name the decisive tradeoff, assumptions, confidence, and signal that should reverse it.
-- Make the direction genuinely lateral when the user asks for an outside-the-frame proposal.
+Default target: the question or decision currently open.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-propose`. Append `As: visual` or `To: brief|plan` only when composed.
+- Reconstruct the decision and its constraints from the full relevant context.
+- State one strong proposal clearly.
+- Explain why it best fits the current intent and constraints.
+- Name the decisive tradeoff, what it gives up, and its main unresolved risk.
+- If asked for a lateral direction, make it structurally distinct rather than cosmetic.
+- End with what the user must accept, reject, or refine.
+- Do not present a menu unless alternatives reveal the tradeoff. Never make the final decision for the user.
 
-A pending `think-on-*` selector overrides the default once. Label the result as a proposal until accepted; a co-invoked `think-to-plan` must keep it explicitly provisional.
+For an explicit invocation, begin with:
+
+`On: <resolved target> · Move: think-propose`
+
+Append ` · With: reasoning-map|diagrams` when composed. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant evidence. Never continue into planning or execution silently.

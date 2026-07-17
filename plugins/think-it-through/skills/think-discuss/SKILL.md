@@ -1,19 +1,23 @@
 ---
 name: think-discuss
-description: Explore and deepen a subject as an active but neutral thinking partner without forcing an interview, challenge, recap, proposal, or artifact. Use only when the user invokes think-discuss or explicitly asks to discuss, unpack, or reason through something together; never redirect the conversation silently.
+description: Explore and deepen the thought currently being expressed as an active but neutral thinking partner without forcing an interview, challenge, recap, proposal, or artifact. Use only when the user invokes think-discuss or explicitly asks to unpack or reason through something together; never redirect silently.
 ---
 
 # Think Discuss
 
-Default scope: the current axis.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant conversation and explicitly supplied context, not only recent messages.
-- Build from the user's latest thought while reconnecting useful earlier ideas.
-- Surface assumptions, tensions, implications, examples, and distinctions that deepen the discussion.
-- Follow the one to three branches with the most explanatory value instead of listing everything.
-- Ask a conversational question only when it meaningfully advances the exploration.
-- Quietly preserve topic and axis boundaries as the user moves between them.
+Default target: the thought currently being expressed.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-discuss`. Append `As: visual` or `To: brief|plan` only when composed.
+- Reconstruct the target within the whole relevant conversation, including paused axes that materially connect.
+- Respond directly to its substance.
+- Develop implications, connections, tensions, language, or examples that help the thought move.
+- Preserve useful ambiguity and distinguish exploration from settled decisions.
+- Ask a question only when it unlocks the discussion; do not turn the exchange into an interview.
+- Do not silently switch into challenge, recap, proposal, planning, or artifact creation.
 
-A pending `think-on-*` selector overrides the default once. Do not manufacture agreement or silently switch operations.
+For an explicit invocation, begin with:
+
+`On: <resolved target> · Move: think-discuss`
+
+Add co-invoked `With` or `To` controls to the pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context. The user leads: never apply another control silently.

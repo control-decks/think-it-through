@@ -1,19 +1,22 @@
 ---
 name: think-on-topic
-description: Scope one explicitly requested operation or artifact projection to a named topic or the clearly current topic. Use only when the user invokes think-on-topic or explicitly asks to apply the next control to a topic; never change scope silently.
+description: Target one explicitly requested move, modifier, or artifact projection at a named topic or the clearly current topic. Use only when the user invokes think-on-topic or explicitly asks to apply a control to a topic; never change target silently.
 ---
 
 # Think On Topic
 
-Selected scope: the named topic, otherwise the clearly current topic.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Apply this scope to an operation or projection in the same request or, when invoked alone, to the next explicit one.
-- Expire the selector immediately after that one use.
-- Reuse the topic's stable human-readable label and include all relevant axes.
-- Infer the topic when context is clear; ask one question only when ambiguity would materially change the result.
-- Narrow the output, not the evidence used for reasoning.
-- Surface cross-topic dependencies when they materially change the result.
+Default target: the topic named by the user, otherwise the clearly current topic.
 
-When invoked alone, reply only with `Scope set: topic “<label>” for the next operation or projection.`
+- Resolve the human label; infer the topic only when unambiguous.
+- Ask one brief question only when multiple plausible topics would materially change the result.
+- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
+- Expire it immediately after that control.
+- Include every relevant axis under the topic.
+- Change only the target. Reintroduce outside evidence or dependencies when they materially affect the result.
+- Do not perform an operation or create persistent state by itself.
 
-Do not perform an operation by yourself or make the scope persistent.
+When invoked alone, respond only:
+
+`Scope set: topic "<resolved topic>" · Applies to: next control`

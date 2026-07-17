@@ -1,20 +1,24 @@
 ---
 name: think-distill
-description: Clarify the intended meaning of the user's latest fragmented, implicit, or hard-to-word message, then respond to that clarified thought or pass it to a co-invoked operation. Use only when the user invokes think-distill or explicitly asks for their thought to be clarified before answering; never rewrite their meaning silently.
+description: Clarify the intended meaning of the user's latest fragmented, implicit, or hard-to-word message, then respond to it or pass it to a co-invoked control. Use only when the user invokes think-distill or explicitly asks for their thought to be clarified before answering; never activate it silently.
 ---
 
 # Think Distill
 
-Default scope: the latest user message interpreted within the current axis.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant conversation and explicitly supplied context to interpret the message.
-- Identify the intended meaning, distinct ideas, implicit assumptions, tensions, and material ambiguity.
-- Present the shortest faithful formulation under `Distilled`.
-- Preserve uncertainty and the user's voice; do not make the thought more settled than it is.
-- Under `Response`, answer the clarified thought as a neutral thinking partner.
-- When another operation is co-invoked, apply it to the distilled formulation instead of adding a neutral response.
-- Ask one question only when plausible interpretations would materially change the answer.
+Default target: the latest human message, interpreted in its context.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-distill`; show a co-invoked operation as `think-distill → <operation>`.
+- Reconstruct relevant context, including older topics or axes that change the message's meaning.
+- Infer the intended claim, question, tension, or connection while preserving real ambiguity and the user's voice.
+- Show `Distilled:` followed by the shortest faithful formulation.
+- Then respond to that formulation.
+- If another move or projection is co-invoked, pass it the distilled formulation instead of answering twice.
+- If two materially different readings remain, show both and ask one discriminating question.
+- Do not turn clarification into a recap, challenge, proposal, or plan unless explicitly composed.
 
-A pending `think-on-*` selector overrides the interpretive scope once. Do not turn every rough message into heavy structure or polish away meaningful ambiguity.
+For an explicit invocation, begin with:
+
+`On: <resolved target> · Move: think-distill`
+
+Add co-invoked `Move`, `To`, or `With` controls to the same pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context. Never apply another control silently.

@@ -1,18 +1,21 @@
 ---
 name: think-on-conversation
-description: Scope one explicitly requested operation or artifact projection to the entire current chat plus any context or checkpoints the user supplied. Use only when the user invokes think-on-conversation or explicitly asks to apply the next control across the whole conversation; never change scope silently.
+description: Target one explicitly requested move, modifier, or artifact projection at the entire available conversation. Use only when the user invokes think-on-conversation or explicitly asks to apply a control conversation-wide; never change target silently.
 ---
 
 # Think On Conversation
 
-Selected scope: the full available conversation.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Apply this scope to an operation or projection in the same request or, when invoked alone, to the next explicit one.
-- Expire the selector immediately after that one use.
-- Include every relevant topic and axis from the current chat and explicitly supplied context.
-- Narrow the output, not the evidence used for reasoning.
-- Surface dependencies outside the apparent scope when they materially change the result.
+Default target: the full available conversation.
 
-When invoked alone, reply only with `Scope set: conversation for the next operation or projection.`
+- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
+- Expire it immediately after that control.
+- Include all identifiable topics and axes still available plus explicitly imported checkpoints.
+- Do not imply access to unavailable history or another conversation.
+- Change only the target. Never discard evidence or dependencies needed to reason correctly.
+- Do not perform an operation or create persistent state by itself.
 
-Do not perform an operation by yourself or imply memory across separate chats.
+When invoked alone, respond only:
+
+`Scope set: conversation · Applies to: next control`

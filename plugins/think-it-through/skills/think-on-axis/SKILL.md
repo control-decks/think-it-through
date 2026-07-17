@@ -1,19 +1,22 @@
 ---
 name: think-on-axis
-description: Scope one explicitly requested operation or artifact projection to a named axis or the clearly current axis. Use only when the user invokes think-on-axis or explicitly asks to apply the next control to an axis; never change scope silently.
+description: Target one explicitly requested move, modifier, or artifact projection at a named axis or the clearly current axis. Use only when the user invokes think-on-axis or explicitly asks to apply a control to an axis; never change target silently.
 ---
 
 # Think On Axis
 
-Selected scope: the named axis, otherwise the clearly current axis.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Apply this scope to an operation or projection in the same request or, when invoked alone, to the next explicit one.
-- Expire the selector immediately after that one use.
-- Reuse the axis's stable human-readable label and preserve its relevant history and state.
-- Infer the axis when context is clear; ask one question only when ambiguity would materially change the result.
-- Narrow the output, not the evidence used for reasoning.
-- Surface dependencies from other axes or topics when they materially change the result.
+Default target: the axis named by the user, otherwise the clearly current axis.
 
-When invoked alone, reply only with `Scope set: axis “<label>” for the next operation or projection.`
+- Resolve the human label; infer the axis only when unambiguous.
+- Ask one brief question only when multiple plausible axes would materially change the result.
+- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
+- Expire it immediately after that control.
+- Keep the result centered on the selected branch.
+- Change only the target. Reintroduce outside evidence or dependencies when they materially affect the result.
+- Do not perform an operation or create persistent state by itself.
 
-Do not perform an operation by yourself or make the scope persistent.
+When invoked alone, respond only:
+
+`Scope set: axis "<resolved axis>" · Applies to: next control`

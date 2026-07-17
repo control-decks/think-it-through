@@ -1,21 +1,22 @@
 ---
 name: think-to-plan
-description: Project an accepted or explicitly provisional direction into an ordered, verifiable Execution Plan using the agent's native planning surface when available. Use only when the user invokes think-to-plan or explicitly asks for an operational plan; never plan or execute silently.
+description: Project an accepted or explicitly provisional executable direction into an ordered, verifiable Execution Plan using the agent's native planning surface when available. Use only when the user invokes think-to-plan or explicitly asks for an operational plan; never plan or execute silently.
 ---
 
 # Think To Plan
 
-Default source: the current accepted or explicitly provisional direction with execution intent.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant map for constraints, but plan only the selected direction.
-- When no executable direction is identifiable, ask one focused question instead of manufacturing one.
-- Mark the direction as accepted or provisional and preserve settled decisions.
-- Define the smallest useful scope, exclusions, assumptions, reversible choices, ordered steps, validation, and real blockers.
-- Include only useful visuals; when `think-as-visual` is co-invoked, make the plan visual-first.
-- Use the agent's native planning surface when available; otherwise return a proposed plan inline.
+Default target: the accepted executable direction, or one the user explicitly marks as provisional.
 
-Begin with `On: <resolved scope> · To: plan`; append `As: visual` when applied.
+- Reconstruct constraints, decisions, dependencies, risks, and success criteria from the full context.
+- If no executable direction is identifiable, ask one focused question instead of inventing one.
+- State whether the source direction is accepted or provisional.
+- Use the agent's native planning surface when available; otherwise present a proposed plan inline.
+- Define objective, scope, ordered work, decision points, dependencies, risks, verification, and completion criteria.
+- Make steps concrete and testable without fabricating details.
+- Use only useful visuals; `think-with-diagrams` makes the plan diagram-led.
+- Wait for explicit validation before implementation. A plan never authorizes execution.
+- Persist only after approval and an explicit durable destination; never overwrite without permission.
 
-Wait for human validation before implementation. After approval, persist the plan only when an explicit durable destination exists; otherwise keep it in the native planning surface or conversation.
-
-A pending `think-on-*` selector narrows the direction once without erasing outside constraints. Never overwrite a destination without authorization, and never treat planning as permission to execute.
+Begin with `On: <resolved target> · To: plan`. Append ` · With: diagrams|reasoning-map` when composed. A `think-on-*` selector overrides the target once, then expires; it never removes material dependencies.

@@ -1,20 +1,24 @@
 ---
 name: think-it-through
-description: Open or resume a user-led thinking session by establishing the topic, intended outcome, and initial axes while keeping a coherent conversation map. Use only when the user invokes think-it-through or explicitly asks to think a complex subject through; never start it silently.
+description: Activate or resume a user-led Think It Through session by adopting the full available conversation and maintaining a coherent map of its topics and axes. Use only when the user invokes think-it-through or explicitly asks to adopt a conversation into the method; never activate it silently.
 ---
 
 # Think It Through
 
-Default scope: the topic supplied by the user, otherwise the current topic.
+Context: the full available current conversation and explicitly supplied material.
 
-- Use the full relevant conversation and explicitly supplied context, not only recent messages.
-- Establish or resume the topic, infer the intent, and give its axes stable human-readable labels.
-- Quietly maintain the map as the user jumps, returns, or contradicts earlier ideas.
-- Ask at most one high-leverage question when the intended outcome is unclear; otherwise begin thinking.
-- Without a subject, show the grouped operation, scope, representation, and artifact palette, then ask what to think through.
+Default target: the current focus or the subject supplied with activation; adoption remains conversation-wide.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-it-through`. Append `As: visual` or `To: brief|plan` only when composed.
+- Adopt earlier messages still available, even when activated late.
+- Reconstruct `Conversation → Topics → Axes` silently with stable, human-readable labels and useful axis states.
+- Continue from the resolved focus instead of restarting the discussion.
+- Maintain the living map on a best-effort basis during subsequent natural exchanges.
+- Require every explicit move, modifier, selector, or projection to reconstruct its own relevant context rather than relying only on maintained state.
+- Ask at most one high-leverage question only when no useful focus can be resolved.
+- Keep the map quiet unless the user requests a recap, representation, or artifact.
 
-A pending `think-on-*` selector overrides the default once. Keep the response scoped, but surface outside dependencies that materially change it.
+When activated, respond compactly:
 
-Let the user steer. Suggest an operation when helpful, but do not apply it silently or force closure.
+`Think It Through active · Adopted: available conversation · Current: <resolved focus>`
+
+A `think-on-*` selector may change one control's target, but never narrows the adopted conversation. The user leads: suggest a control when useful, but never apply one silently. Do not promise memory across conversations.

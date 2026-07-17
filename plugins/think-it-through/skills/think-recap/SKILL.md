@@ -1,19 +1,24 @@
 ---
 name: think-recap
-description: Reflect the selected conversation as a structured map and coherent digest organized by topics and axes rather than chronology. Use only when the user invokes think-recap or explicitly asks for a recap or synthesis; never interrupt with an unsolicited checkpoint.
+description: Recover the full shape of the available conversation as a structured map and coherent digest organized by topics and axes rather than chronology. Use only when the user invokes think-recap or explicitly asks for a recap or synthesis; never interrupt with an unsolicited checkpoint.
 ---
 
 # Think Recap
 
-Default scope: the current topic.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant conversation and explicitly supplied context, not only recent messages.
-- Reuse stable human-readable topic and axis labels; show renames or merges when meaning changed.
-- Map first: show topics or axes, their state, decisions, tensions, and open questions.
-- Digest second: explain the coherent shape of the thinking and the connections that matter.
-- At axis scope, show its evolution; at topic scope, relate its axes; at conversation scope, relate its topics.
-- Compress repetition while preserving material distinctions and contradictions.
+Default target: the full available conversation.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-recap`. Append `As: visual` or `To: brief` only when composed.
+- Reconstruct the target from the entire relevant context; by default this is the whole available conversation.
+- Build `Conversation → Topics → Axes` with concise human labels.
+- Mark axes active, paused, resolved, or superseded when supported.
+- Capture material ideas, assumptions, proposals, decisions, tensions, contradictions, dependencies, and open questions.
+- Then write a transversal digest: what the conversation is really about, how its parts connect, what changed, and where it stands.
+- Prefer conceptual structure over chronology. Preserve uncertainty and disagreement.
+- Do not introduce a new direction, decide, plan, or create a file.
 
-A pending `think-on-*` selector overrides the default once. Keep recap conversational: do not persist, plan, propose, or create a new direction unless another operation explicitly requests it.
+For an explicit invocation, begin with:
+
+`On: <resolved target> · Move: think-recap`
+
+Append ` · With: diagrams|reasoning-map` or ` · To: brief` when explicitly composed. A co-invoked brief materializes this checkpoint. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context.

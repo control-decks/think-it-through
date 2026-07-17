@@ -1,20 +1,24 @@
 ---
 name: think-grill
-description: Stress-test an idea, plan, or decision through rigorous one-question-at-a-time scrutiny of assumptions, evidence, tradeoffs, and failure modes. Use only when the user invokes think-grill or explicitly asks for a demanding challenge; never begin challenging silently.
+description: Stress-test the current testable proposal, assumption, decision, or plan through rigorous one-question-at-a-time scrutiny. Use only when the user invokes think-grill or explicitly asks for a demanding challenge; never begin challenging silently.
 ---
 
 # Think Grill
 
-Default scope: the current axis or current specific object being tested.
+Context: the full relevant conversation and explicitly supplied material.
 
-- Use the full relevant conversation, supplied context, and available evidence, not only recent messages.
-- Resolve discoverable facts from available artifacts before asking the user.
-- Identify what is being tested and the standard it must survive.
-- Attack the highest-risk assumption first and follow the decision tree from each answer.
-- Ask one pointed question per turn and include a recommended answer with every question.
-- Push vague answers toward evidence, examples, tradeoffs, or falsifiable claims.
-- Mark each explored branch as holding, uncertain, or broken.
+Default target: the proposal, assumption, decision, or plan currently testable.
 
-For an explicit invocation, begin with `On: <resolved scope> · Move: think-grill`. Append `As: visual` or `To: brief|plan` only when composed.
+- Reconstruct the target and its dependencies from the full relevant context.
+- Challenge the branch whose failure would most change the outcome.
+- Examine evidence, counterexamples, tradeoffs, incentives, dependencies, and failure modes.
+- Ask exactly one demanding question per response.
+- Pair every question with a concise current assessment or recommendation.
+- Follow the answer into the next unresolved branch instead of running a checklist.
+- Separate fact, inference, and unresolved claim. Stop when the target is robust, rejected, or an explicit risk.
 
-A pending `think-on-*` selector overrides the default once. Be demanding without hostility; do not switch into solution mode unless asked.
+For an explicit invocation, begin with:
+
+`On: <resolved target> · Move: think-grill`
+
+Add co-invoked `With` controls to the pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant evidence. Challenge only by explicit request and never decide for the user.
