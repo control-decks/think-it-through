@@ -8,7 +8,7 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** Ideas arrive faster than the user can structure them.
-**On:** The latest human message, interpreted in its relevant context.
+**On (default):** The latest human message, interpreted in its relevant context.
 **Move:** Separate every material thought, clarify each one, then expose supported convergence, tension, or dependency.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
 **Cadence:** One-shot; useful on successive messages.

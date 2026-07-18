@@ -8,7 +8,7 @@ description: Add the smallest useful diagram to a co-invoked or current result w
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** Relationships would be easier to understand as a visual structure.
-**On:** The co-invoked result, otherwise the latest substantive result or focus.
+**On (default):** The co-invoked result, otherwise the latest substantive result or focus.
 **Move:** Identify the relationship worth compressing, choose the smallest useful form, and add it without changing the substance.
 **Result:** A flow, tree, timeline, matrix, table, or Mermaid diagram tied to the content.
 **Cadence:** One-shot; create no modifier state.

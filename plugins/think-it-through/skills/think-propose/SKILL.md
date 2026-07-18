@@ -8,7 +8,7 @@ description: Put forward one strong direction for the current open question or d
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** Exploration has produced an open question that needs direction.
-**On:** The current open question or decision.
+**On (default):** The current open question or decision.
 **Move:** Evaluate the viable directions, choose one, and expose why it fits, what it gives up, and where it can fail.
 **Result:** One strong proposal that the user can accept, reject, or refine.
 **Cadence:** One-shot.

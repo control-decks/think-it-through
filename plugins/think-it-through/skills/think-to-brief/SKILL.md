@@ -8,7 +8,7 @@ description: Project the full available conversation or a co-invoked result into
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**On:** The full available conversation, unless a combo supplies a selected result.
+**On (default):** The full available conversation, unless a combo supplies a selected result.
 **Move:** Read the selected map or result directly, infer a useful document form and audience, then project it into a neutral Thinking Brief.
 **Result:** Portable Markdown organized by topics and axes, with purpose, synthesis, decisions, tensions, open questions, and a resumption point.
 **Cadence:** Occasional artifact projection.

@@ -8,7 +8,7 @@ description: Adopt the available conversation into a user-led Think It Through s
 Context: the full available current conversation and explicitly supplied material.
 
 **When:** A conversation has become substantial, including when activation comes late.
-**On:** The current focus or supplied subject; adoption remains conversation-wide.
+**On (default):** The current focus or supplied subject; adoption remains conversation-wide.
 **Move:** Adopt the available context, rebuild `Conversation → Topics → Axes` with stable labels and supported states, and maintain the map in best effort.
 **Result:** A resumed session with a resolved focus and quiet continuity.
 **Cadence:** Activate once or resume when needed. Every later command still rebuilds its relevant context.

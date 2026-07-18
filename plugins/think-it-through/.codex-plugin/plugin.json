@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.7.0",
-  "description": "A lightweight command palette and starter deck for thinking through complex ideas with AI.",
+  "version": "0.7.1",
+  "description": "Develop complex ideas with AI through a domain-neutral conversation control layer.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
@@ -18,7 +18,7 @@
     "creative-thinking",
     "creativity",
     "ideation",
-    "steering",
+    "conversation-control",
     "mapping",
     "human-led-thinking",
     "human-ai-collaboration",
@@ -35,7 +35,7 @@
   "interface": {
     "displayName": "Think It Through",
     "shortDescription": "Write the thought. Command the next move.",
-    "longDescription": "Think through complex ideas with a starter deck of composable command cards. Each card gives the agent an explicit job, target, flow, and result.",
+    "longDescription": "Develop complex ideas across long, nonlinear conversations with composable commands that give the agent an explicit job, default target, flow, and result.",
     "developerName": "thevzion",
     "category": "Productivity",
     "capabilities": [],

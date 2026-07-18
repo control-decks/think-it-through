@@ -8,7 +8,7 @@ description: Target an explicit command combo at the entire available conversati
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** A combo should cover every available topic and axis.
-**On:** The full available conversation plus imported checkpoints.
+**On (default):** The full available conversation plus imported checkpoints.
 **Move:** Resolve the conversation target and bind it to the combo in the same request or the next explicit combo.
 **Result:** A conversation-wide target.
 **Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.

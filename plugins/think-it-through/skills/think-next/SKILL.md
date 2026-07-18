@@ -8,7 +8,7 @@ description: Recommend the next one to three concrete actions with the highest l
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** The user knows enough to move but needs the highest-leverage next step.
-**On:** The latest actionable result, otherwise the current focus.
+**On (default):** The latest actionable result, otherwise the current focus.
 **Move:** Recover the current stage and dependencies, identify the bottleneck, then rank concrete actions by leverage.
 **Result:** One to three actions with expected outcomes.
 **Cadence:** One-shot.

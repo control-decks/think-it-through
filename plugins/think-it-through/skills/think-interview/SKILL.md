@@ -8,7 +8,7 @@ description: Build shared understanding through a multi-turn interview about the
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** A material gap prevents shared understanding.
-**On:** The smallest current subject that contains that gap.
+**On (default):** The smallest current subject with a material understanding gap.
 **Move:** Resolve discoverable facts, then ask one focused question at a time and adapt to each answer.
 **Result:** Enough shared understanding to continue without guessing.
 **Cadence:** Multi-turn. Retain the target until understanding is sufficient or the user stops, redirects, or invokes another card.

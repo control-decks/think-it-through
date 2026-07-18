@@ -8,7 +8,7 @@ description: Stress-test a proposal, assumption, decision, design, or plan throu
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** A testable idea needs pressure before the user relies on it.
-**On:** The current proposal, assumption, decision, design, or plan.
+**On (default):** The current proposal, assumption, decision, design, or plan.
 **Move:** Walk its decision tree, resolve discoverable facts, then test one unresolved branch at a time with a recommendation and demanding question.
 **Result:** A target that is robust, rejected, or reduced to explicit risks.
 **Cadence:** Multi-turn. Retain the target until a result or until the user stops, redirects, or invokes another card.

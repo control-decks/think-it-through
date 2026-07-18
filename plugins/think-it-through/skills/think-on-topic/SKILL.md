@@ -8,7 +8,7 @@ description: Target an explicit command combo at a named topic or the clearly cu
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** A combo should focus on one topic and all its relevant axes.
-**On:** The named topic, otherwise the unambiguous current topic.
+**On (default):** The named topic, otherwise the unambiguous current topic.
 **Move:** Resolve the human label and bind that topic to the combo in the same request or the next explicit combo.
 **Result:** A topic-level target.
 **Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.

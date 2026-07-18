@@ -8,7 +8,7 @@ description: Explore and deepen the thought currently being expressed as an acti
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** The user wants a thinking partner without a forced outcome.
-**On:** The thought currently being expressed.
+**On (default):** The thought currently being expressed.
 **Move:** Develop its implications, connections, tensions, language, or examples.
 **Result:** A direct response that helps the thought develop while preserving useful ambiguity.
 **Cadence:** One-shot; repeat whenever exploration should continue.

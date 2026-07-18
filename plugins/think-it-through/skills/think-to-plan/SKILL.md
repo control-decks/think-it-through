@@ -8,7 +8,7 @@ description: Project an accepted or explicitly provisional executable direction 
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** An accepted or explicitly provisional direction needs operational structure.
-**On:** That executable direction.
+**On (default):** The accepted or explicitly provisional executable direction.
 **Move:** Recover constraints and success criteria, then create an ordered, verifiable Execution Plan on the agent's native planning surface when available.
 **Result:** A proposed plan with objective, ordered work, dependencies, risks, verification, and completion criteria.
 **Cadence:** Occasional artifact projection followed by user validation.

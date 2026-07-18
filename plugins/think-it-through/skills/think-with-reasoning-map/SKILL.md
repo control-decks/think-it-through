@@ -8,7 +8,7 @@ description: Expose the structure of the reasoning behind a co-invoked result, p
 Context: the full relevant conversation and explicitly supplied material.
 
 **When:** The user needs to inspect how a claim, proposal, decision, or system holds together.
-**On:** The co-invoked reasoning, otherwise the current proposal or decision.
+**On (default):** The co-invoked reasoning, otherwise the current proposal or decision.
 **Move:** Extract stated claims, evidence, premises, assumptions, inferences, implications, and objections, then map supported links.
 **Result:** An argument map for a claim or a broader reasoning map for a decision or system.
 **Cadence:** One-shot; create no modifier state.
