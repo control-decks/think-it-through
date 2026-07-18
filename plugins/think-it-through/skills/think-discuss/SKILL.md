@@ -1,19 +1,18 @@
 ---
 name: think-discuss
-description: Explore and deepen the thought currently being expressed as an active, neutral thinking partner without forcing a conclusion or changing modes. Use only when the user invokes think-discuss or asks to reason through something together; never redirect silently.
+description: Explore and deepen the thought currently being expressed as an active, neutral thinking partner without forcing a conclusion or changing jobs. Use only when the user invokes think-discuss or asks to reason through something together; never redirect silently.
 ---
 
 # 💬 Think Discuss
 
-Context: the full relevant conversation and explicitly supplied material.
-
-**When:** The user wants a thinking partner without a forced outcome.
-**On (default):** The thought currently being expressed.
-**Move:** Develop its implications, connections, tensions, language, or examples.
-**Result:** A direct response that helps the thought develop while preserving useful ambiguity.
-**Cadence:** One-shot; repeat whenever exploration should continue.
-**Boundary:** Ask only when a question unlocks the discussion. Do not become an interview, grill, recap, proposal, plan, or artifact.
-**Composition:** Consume a selected target or a prior move's result, then pass the response to later cards.
+**Context:** The full relevant conversation and explicitly supplied material.
+**Use when:** The user wants a thinking partner without a forced outcome.
+**Default target:** The thought currently being expressed.
+**Job:** Develop its implications, connections, tensions, language, or examples.
+**Result:** A direct response that develops the thought while preserving useful ambiguity.
+**Runs for:** One response; repeat whenever exploration should continue.
+**Limits:** Ask only when a question unlocks the discussion. Do not become an interview, grill, recap, proposal, plan, or artifact.
+**Combines with:** Consume a selected target or the preceding job's result, then pass the response to later cards.
 
 ## Flow
 
@@ -28,8 +27,8 @@ flowchart LR
     F --> G
 ```
 
-## Display
+## Format
 
-Begin with `> 🎯 **<target>** → 💬 **DISCUSS**`, then respond naturally. Add no forced section headings.
+Begin the combo trace with `> 🎯 **<target>** → 💬 **DISCUSS**`, then respond naturally without forced section headings.
 
-Append later moves, `With`, or `To` cards to the same signature. A selector targets the whole combo, then expires; it never narrows evidence.
+Add later jobs or an output with `→` and modifiers with `+`; show the trace once for the complete combo.

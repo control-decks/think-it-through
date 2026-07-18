@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.7.3",
-  "description": "A lightweight, domain-neutral conversation control layer for developing complex ideas with AI.",
+  "version": "0.7.4",
+  "description": "A lightweight command palette for developing ideas with AI across long, branching conversations.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
@@ -35,7 +35,7 @@
   "interface": {
     "displayName": "Think It Through",
     "shortDescription": "Think freely. The agent follows your lead.",
-    "longDescription": "A lightweight conversation control layer for long, nonlinear thinking. Composable commands give the agent an explicit move, useful default target, flow, and result without imposing a workflow.",
+    "longDescription": "A lightweight command palette for long, nonlinear thinking. Each command gives the agent a clear job, useful default target, flow, and result without imposing a workflow.",
     "developerName": "thevzion",
     "category": "Productivity",
     "capabilities": [],

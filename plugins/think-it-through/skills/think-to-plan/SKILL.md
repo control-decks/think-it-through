@@ -1,19 +1,18 @@
 ---
 name: think-to-plan
-description: Project an accepted or explicitly provisional executable direction into an ordered, verifiable Execution Plan using the agent's native planning surface when available. Use only when the user invokes think-to-plan or asks for an operational plan; never plan or execute silently.
+description: Turn an accepted or explicitly provisional executable direction into an ordered, verifiable Execution Plan using the agent's native planning surface when available. Use only when the user invokes think-to-plan or asks for an operational plan; never plan or execute silently.
 ---
 
 # 📋 Think To Plan
 
-Context: the full relevant conversation and explicitly supplied material.
-
-**When:** An accepted or explicitly provisional direction needs operational structure.
-**On (default):** The accepted or explicitly provisional executable direction.
-**Move:** Recover constraints and success criteria, then create an ordered, verifiable Execution Plan on the agent's native planning surface when available.
+**Context:** The full relevant conversation and explicitly supplied material.
+**Use when:** An accepted or explicitly provisional direction needs operational structure.
+**Default target:** The accepted or explicitly provisional executable direction.
+**Job:** Recover constraints and success criteria, then produce an ordered, verifiable Execution Plan on the agent's native planning surface when available.
 **Result:** A proposed plan with objective, ordered work, dependencies, risks, verification, and completion criteria.
-**Cadence:** Occasional artifact projection followed by user validation.
-**Boundary:** Ask once when no executable direction exists. Do not fabricate details, treat the plan as approval, execute it, persist it without an approved destination, or overwrite without permission.
-**Composition:** Consume a proposal or selected direction. A modifier can add diagrams or a reasoning map.
+**Runs for:** One output followed by user validation.
+**Limits:** Ask once when no executable direction exists. Do not fabricate details, treat the plan as approval, execute it, save it without an approved destination, or overwrite without permission.
+**Combines with:** Consume the final job result or an accepted selected direction. Modifiers apply to the resulting plan. Ask one clarification if another output appears in the combo.
 
 ## Flow
 
@@ -25,15 +24,15 @@ flowchart TD
     D --> E["Use native plan surface or inline plan"]
     E --> F["Build ordered, verifiable plan"]
     F --> G["Wait for user validation"]
-    G --> H{"Approved durable destination?"}
-    H -->|No| I["Keep plan unpersisted"]
-    H -->|Yes| J["Persist without executing"]
+    G --> H{"Approved destination?"}
+    H -->|No| I["Keep plan unsaved"]
+    H -->|Yes| J["Save without executing"]
 ```
 
 State whether the source direction is accepted or provisional.
 
-## Display
+## Format
 
-Begin with `> 🎯 **<target>** → 📋 **PLAN**`. Append `+ 📊 **DIAGRAMS**` or `+ 🧠 **REASONING MAP**` when composed.
+Add `→ 📋 **PLAN**` after the final job in the combo trace, or begin with `> 🎯 **<target>** → 📋 **PLAN**` when used alone. Add modifiers with `+`.
 
-Show status while awaiting direction, validation, destination, or overwrite permission. A selector targets the whole combo, then expires; it never removes material dependencies.
+Show status while awaiting direction, validation, destination, or overwrite permission. A plan never authorizes execution.

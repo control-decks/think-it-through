@@ -5,15 +5,14 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 
 # 🧪 Think Distill
 
-Context: the full relevant conversation and explicitly supplied material.
-
-**When:** Ideas arrive faster than the user can structure them.
-**On (default):** The latest human message, interpreted in its relevant context.
-**Move:** Separate every material thought, clarify each one, then expose supported convergence, tension, or dependency.
+**Context:** The full relevant conversation and explicitly supplied material.
+**Use when:** Ideas arrive faster than the user can structure them.
+**Default target:** The latest human message, interpreted in its relevant context.
+**Job:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
-**Cadence:** One-shot; useful on successive messages.
-**Boundary:** Do not merge distinct thoughts, add advice inside the distillation, or turn clarification into another move.
-**Composition:** Used alone, respond after distilling. In a combo, pass the structured result to the next move without an intermediate answer.
+**Runs for:** One response; useful on successive messages.
+**Limits:** Do not merge distinct thoughts, invent connections, place advice inside the distillation, or replace clarification with another job.
+**Combines with:** Alone, respond after distilling. In a combo, pass the structured result to the next job without an intermediate answer.
 
 ## Flow
 
@@ -22,20 +21,20 @@ flowchart LR
     A["Latest message in context"] --> B["Separate material thoughts"]
     B --> C["Clarify each thought"]
     C --> D{"Relationship supported?"}
-    D -->|Yes| E["Expose connection or tension"]
+    D -->|Yes| E["Show connection or tension"]
     D -->|No| F["Keep thoughts distinct"]
     E --> G{"Reading still ambiguous?"}
     F --> G
     G -->|Yes| H["Show readings and ask once"]
-    G -->|No| I["Respond or pass forward"]
+    G -->|No| I["Respond or pass result"]
 ```
 
-## Display
+## Format
 
-Begin with `> 🎯 **<target>** → 🧪 **DISTILL**`, followed by:
+Begin the combo trace with `> 🎯 **<target>** → 🧪 **DISTILL**`, then use:
 
 1. `Distilled` with one formulation or a short list.
 2. `Connections` only when the context supports them.
 3. `Response` when used alone.
 
-Keep implications and advice in `Response`. Append later moves, `With`, or `To` cards to the same signature. A selector targets the whole combo, then expires; it never narrows evidence.
+Keep implications and advice in `Response`. Add later jobs with `→`; show the trace once for the complete combo.

@@ -5,22 +5,23 @@ description: Target an explicit command combo at the entire available conversati
 
 # 🎯 Think On Conversation
 
-Context: the full relevant conversation and explicitly supplied material.
-
-**When:** A combo should cover every available topic and axis.
-**On (default):** The full available conversation plus imported checkpoints.
-**Move:** Resolve the conversation target and bind it to the combo in the same request or the next explicit combo.
+**Context:** The full relevant conversation and explicitly supplied material.
+**Use when:** A combo should cover every available topic and axis.
+**Default target:** The full available conversation plus supplied checkpoints.
+**Job:** Resolve the conversation target and apply it to the combo in the same request or the next explicit combo.
 **Result:** A conversation-wide target.
-**Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.
-**Boundary:** Change only the target. Do not discard needed evidence, imply unavailable history, run a move, or create persistent state.
-**Composition:** The first move consumes this target; later moves consume the preceding result.
+**Runs for:** One combo, then clear. A multi-turn interview or grill keeps the selected target until its loop ends.
+**Limits:** Change only the target. The agent can still use relevant context outside the target. Do not imply unavailable history, run another command, or create persistent state.
+**Combines with:** Apply before all jobs in semantic order, even when written elsewhere. The first job consumes this target; later jobs consume the preceding result.
 
-**Flow:** `resolve target → bind whole combo → expire`
+## Flow
 
-## Display
+`resolve target → apply to whole combo → apply once, then clear`
+
+## Format
 
 When invoked alone, respond only:
 
-`Scope set: conversation · Applies to: next combo`
+`Target set: conversation · Applies to: next combo`
 
-In a combo, use `🎯 **Conversation**` as the first item in its signature.
+In a combo, use `🎯 **Conversation**` as the first item in the trace. Ask one clarification if another selector appears in the same combo.

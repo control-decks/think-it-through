@@ -5,22 +5,23 @@ description: Target an explicit command combo at a named axis or the clearly cur
 
 # 🎯 Think On Axis
 
-Context: the full relevant conversation and explicitly supplied material.
-
-**When:** A combo should focus on one branch inside a topic.
-**On (default):** The named axis, otherwise the unambiguous current axis.
-**Move:** Resolve the human label and bind that axis to the combo in the same request or the next explicit combo.
+**Context:** The full relevant conversation and explicitly supplied material.
+**Use when:** A combo should focus on one branch inside a topic.
+**Default target:** The named axis, otherwise the unambiguous current axis.
+**Job:** Resolve the human label and apply that axis to the combo in the same request or the next explicit combo.
 **Result:** An axis-level target.
-**Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.
-**Boundary:** Ask once if several axes would change the result. Do not create a new axis, remove outside dependencies, run a move, or create persistent state.
-**Composition:** The first move consumes this target; later moves consume the preceding result.
+**Runs for:** One combo, then clear. A multi-turn interview or grill keeps the selected target until its loop ends.
+**Limits:** Ask once if several axes could change the result. The agent can still use relevant context outside the target. Do not create a new axis, run another command, or create persistent state.
+**Combines with:** Apply before all jobs in semantic order, even when written elsewhere. The first job consumes this target; later jobs consume the preceding result.
 
-**Flow:** `resolve target → bind whole combo → expire`
+## Flow
 
-## Display
+`resolve target → apply to whole combo → apply once, then clear`
+
+## Format
 
 When invoked alone, respond only:
 
-`Scope set: axis "<axis>" · Applies to: next combo`
+`Target set: axis "<axis>" · Applies to: next combo`
 
-In a combo, use `🎯 **Axis: <axis>**` as the first item in its signature.
+In a combo, use `🎯 **Axis: <axis>**` as the first item in the trace. Ask one clarification if another selector appears in the same combo.
