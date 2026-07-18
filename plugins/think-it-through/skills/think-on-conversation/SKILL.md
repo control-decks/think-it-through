@@ -6,12 +6,11 @@ description: Apply an explicit command combo to the entire available conversatio
 # 🎯 Think On Conversation
 
 **Use when:** A combo should cover every available topic and axis.
-**Works on by default:** The full available conversation plus supplied checkpoints.
+**Default focus:** The full available conversation plus supplied checkpoints.
 **Effect:** Resolve the conversation focus and apply it to the combo in the same request or the next explicit combo.
 **Result:** A conversation-wide focus.
 **Duration:** One combo, then clear. A multi-exchange interview or grill keeps the selected focus until its loop ends.
 **Limits:** Change only the focus. The agent can still use relevant context outside the focus. Do not imply unavailable history, run another command, or create persistent state.
-**Combines with:** Apply before all move cards in semantic order, even when written elsewhere. The first move works on this focus; later moves work on the preceding result.
 
 ## Flow
 

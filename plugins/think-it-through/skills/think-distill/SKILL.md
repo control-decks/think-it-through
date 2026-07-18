@@ -6,12 +6,11 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 # 🧪 Think Distill
 
 **Use when:** Ideas arrive faster than the user can structure them.
-**Works on by default:** The latest human message, interpreted in its relevant context.
+**Default focus:** The latest human message, interpreted in its relevant context.
 **Effect:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
 **Duration:** One agent turn. Play it again on successive messages when useful.
 **Limits:** Do not merge distinct thoughts, invent connections, place advice inside the distillation, or replace clarification with another effect.
-**Combines with:** Alone, respond after distilling. In a combo, pass the structured result to the next move card without an intermediate answer.
 
 ## Flow
 

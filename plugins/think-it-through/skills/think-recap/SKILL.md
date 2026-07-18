@@ -6,12 +6,11 @@ description: Recover the full shape of the available conversation as a structure
 # 🗺️ Think Recap
 
 **Use when:** The discussion has lost its overall shape or needs a checkpoint.
-**Works on by default:** The full available conversation, the same focus as `/think-on-conversation`.
+**Default focus:** The full available conversation, the same focus as `/think-on-conversation`.
 **Effect:** Reconstruct topics and axes with concise human labels, reuse supported labels, classify their contents and states, then synthesize relationships across them.
 **Result:** A navigable map whose topic and axis labels can be reused by focus cards, followed by a coherent account of where the thinking stands.
 **Duration:** One agent turn. Play it again at useful checkpoints.
 **Limits:** Preserve uncertainty and disagreement. Do not suggest another command, choose a direction, decide, plan, create technical identifiers, persist state, or create a file.
-**Combines with:** A focus card can narrow the focus. A modifier changes the final representation. `think-to-brief` can preserve this explicit checkpoint. The default resolves directly; it does not play a hidden card.
 
 ## Flow
 

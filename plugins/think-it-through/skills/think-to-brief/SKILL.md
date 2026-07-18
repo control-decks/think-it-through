@@ -6,12 +6,11 @@ description: Turn the full available conversation or a result from the same comb
 # 📄 Think To Brief
 
 **Use when:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**Works on by default:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
+**Default focus:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
 **Effect:** Use the canonical map or supplied result to verify coverage, infer a useful document form and audience, then use the subject's vocabulary and the audience's expected structure.
 **Result:** A portable Markdown checkpoint that covers the relevant material, with purpose, overall synthesis, decisions, tensions, open questions, and where to resume when useful.
 **Duration:** One output flow, including any required confirmation.
 **Limits:** Keep the trace, HACP, cards, combos, and deck vocabulary outside the artifact body unless they are the subject or the user requests them. Do not run an implicit recap, invent conclusions, claim cross-session memory, synchronize later, or overwrite without permission.
-**Combines with:** Use the final move result or the default focus. Modifiers apply to the resulting brief. Ask one clarification if another output appears in the combo. The default resolves directly; it does not play a hidden focus card.
 
 ## Flow
 

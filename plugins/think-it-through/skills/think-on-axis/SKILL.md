@@ -6,12 +6,11 @@ description: Apply an explicit command combo to a named axis or the clearly curr
 # 🎯 Think On Axis
 
 **Use when:** A combo should focus on one branch inside a topic.
-**Works on by default:** The named axis, otherwise the unambiguous current axis.
+**Default focus:** The named axis, otherwise the unambiguous current axis.
 **Effect:** Resolve the human label and apply that axis to the combo in the same request or the next explicit combo.
 **Result:** An axis-level focus.
 **Duration:** One combo, then clear. A multi-exchange interview or grill keeps the selected focus until its loop ends.
 **Limits:** Ask once if several axes could change the result. The agent can still use relevant context outside the focus. Do not create a new axis, run another command, or create persistent state.
-**Combines with:** Apply before all move cards in semantic order, even when written elsewhere. The first move works on this focus; later moves work on the preceding result.
 
 ## Flow
 

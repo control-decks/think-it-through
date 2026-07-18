@@ -6,12 +6,11 @@ description: Stress-test a proposal, assumption, decision, design, or plan throu
 # 🔥 Think Grill
 
 **Use when:** A testable idea needs pressure before the user relies on it.
-**Works on by default:** The current proposal, assumption, decision, design, or plan.
+**Default focus:** The current proposal, assumption, decision, design, or plan.
 **Effect:** Walk its decision tree, resolve discoverable facts, then test one unresolved branch at a time with a recommendation and demanding question.
 **Result:** A selected idea that is robust, rejected, or reduced to explicit risks.
 **Duration:** Multiple exchanges. Keep the selected focus until a result is reached or the user stops, redirects, or plays another card.
 **Limits:** Separate fact, inference, and unresolved claim. Do not decide for the user or ask for information that can be found from available sources.
-**Combines with:** A focus card applies to the full grill. A reasoning map can expose the final tested logic without repairing it.
 
 ## Flow
 

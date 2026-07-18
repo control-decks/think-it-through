@@ -6,12 +6,11 @@ description: Recommend the next one to three concrete actions with the highest l
 # ⚡ Think Next
 
 **Use when:** The user has enough clarity to continue but needs the highest-leverage next step.
-**Works on by default:** The latest actionable result, otherwise the current focus.
+**Default focus:** The latest actionable result, otherwise the current focus.
 **Effect:** Recover the current stage and dependencies, identify the bottleneck, then rank concrete actions by leverage.
 **Result:** One to three actions with expected outcomes.
 **Duration:** One agent turn.
 **Limits:** Distinguish conversational and external actions. Do not expand into a full plan or execute anything.
-**Combines with:** Work on the latest result or a selected focus. An output can turn an accepted direction into a plan.
 
 ## Flow
 

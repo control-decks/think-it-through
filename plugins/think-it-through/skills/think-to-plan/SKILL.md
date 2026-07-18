@@ -6,12 +6,11 @@ description: Turn an accepted or explicitly provisional executable direction int
 # 📋 Think To Plan
 
 **Use when:** An accepted or explicitly provisional direction needs operational structure.
-**Works on by default:** The accepted or explicitly provisional executable direction.
+**Default focus:** The accepted or explicitly provisional executable direction.
 **Effect:** Use the canonical map and source direction to recover constraints, success criteria, and applicable conventions, then produce an ordered, verifiable Execution Plan on the agent's native planning surface when available.
 **Result:** A proposed plan with objective, ordered work, dependencies, risks, verification, and completion criteria.
 **Duration:** One output flow, including user validation.
 **Limits:** Keep the trace, HACP, cards, combos, and deck vocabulary outside the artifact body unless they are the subject or the user requests them. Ask once when no executable direction exists. Do not fabricate details, treat the plan as approval, execute it, save it without an approved destination, or overwrite without permission.
-**Combines with:** Consume the final move result or an accepted selected direction. Modifiers apply to the resulting plan. Ask one clarification if another output appears in the combo.
 
 ## Flow
 

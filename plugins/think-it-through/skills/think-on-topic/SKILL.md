@@ -6,12 +6,11 @@ description: Apply an explicit command combo to a named topic or the clearly cur
 # 🎯 Think On Topic
 
 **Use when:** A combo should focus on one topic and its relevant axes.
-**Works on by default:** The named topic, otherwise the unambiguous current topic.
+**Default focus:** The named topic, otherwise the unambiguous current topic.
 **Effect:** Resolve the human label and apply that topic to the combo in the same request or the next explicit combo.
 **Result:** A topic-level focus.
 **Duration:** One combo, then clear. A multi-exchange interview or grill keeps the selected focus until its loop ends.
 **Limits:** Ask once if several topics could change the result. The agent can still use relevant context outside the focus. Do not run another command or create persistent state.
-**Combines with:** Apply before all move cards in semantic order, even when written elsewhere. The first move works on this focus; later moves work on the preceding result.
 
 ## Flow
 

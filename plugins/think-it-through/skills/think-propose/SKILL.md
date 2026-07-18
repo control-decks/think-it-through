@@ -6,12 +6,11 @@ description: Put forward one strong direction for the current open question or d
 # 🧭 Think Propose
 
 **Use when:** Exploration has produced an open question that needs direction.
-**Works on by default:** The current open question or decision.
+**Default focus:** The current open question or decision.
 **Effect:** Evaluate viable directions, choose one, and expose why it fits, what it gives up, and where it can fail.
 **Result:** One strong proposal that the user can accept, reject, or refine.
 **Duration:** One agent turn.
 **Limits:** Do not hide the decisive tradeoff, offer a soft menu, make the final decision, or continue into planning.
-**Combines with:** Work on a selected focus or the preceding move card's result. Pass the proposal to another move card, an output, or modifiers.
 
 ## Flow
 

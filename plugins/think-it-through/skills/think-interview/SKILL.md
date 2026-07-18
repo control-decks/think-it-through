@@ -6,12 +6,11 @@ description: Build shared understanding through a multi-turn interview about the
 # 🔎 Think Interview
 
 **Use when:** Important missing information prevents shared understanding.
-**Works on by default:** The smallest current subject with important missing information.
+**Default focus:** The smallest current subject with important missing information.
 **Effect:** Resolve discoverable facts, ask one focused question at a time, and adapt each question to the preceding answer.
 **Result:** Enough shared understanding to continue without guessing.
 **Duration:** Multiple exchanges. Keep the selected focus until understanding is sufficient or the user stops, redirects, or plays another card.
 **Limits:** Stay neutral. Do not challenge, recommend, or turn the interview into a grill.
-**Combines with:** A focus card applies to the full interview. Modifiers can represent the final understanding without changing it.
 
 ## Flow
 

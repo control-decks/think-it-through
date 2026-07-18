@@ -6,12 +6,11 @@ description: Expose the reasoning structure in a result from the same combo or t
 # 🧠 Think With Reasoning Map
 
 **Use when:** The user needs to inspect how a claim, proposal, decision, or system holds together.
-**Works on by default:** The final reasoning from the same combo, otherwise the current proposal or decision.
+**Default focus:** The final reasoning from the same combo, otherwise the current proposal or decision.
 **Effect:** Extract stated claims, evidence, premises, assumptions, inferences, implications, and objections, then map supported links.
 **Result:** An argument map for a claim or a broader reasoning map for a decision or system.
 **Duration:** One final representation. It does not affect later responses.
 **Limits:** Mark inferred links and uncertainty. Do not add or repair evidence, causality, confidence, or reasoning. Do not challenge or decide.
-**Combines with:** Apply to the final substantive result or artifact. Multiple modifiers read that same result; they do not transform one another.
 
 ## Flow
 

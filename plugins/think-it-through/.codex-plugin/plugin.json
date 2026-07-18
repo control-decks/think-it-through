@@ -1,6 +1,6 @@
 {
   "name": "think-it-through",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "The first thinking deck built on the Human-Agent Card Protocol, with 14 conversation cards for developing complex ideas with AI.",
   "author": {
     "name": "thevzion",
@@ -40,7 +40,7 @@
     "category": "Productivity",
     "capabilities": [],
     "defaultPrompt": [
-      "$think-it-through:think-it-through Use the Think It Through protocol for this conversation.",
+      "$think-it-through:think-help Help me choose how to continue this conversation.",
       "$think-it-through:think-recap Recover the full shape of this conversation.",
       "$think-it-through:think-to-brief Turn this thinking into a reusable brief."
     ]

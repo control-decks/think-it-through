@@ -1,6 +1,6 @@
 ---
 name: think-it-through
-description: Supply the shared Think It Through deck rules and mental model whenever the user invokes think-it-through, plays any Think It Through card, combines its cards, or explicitly asks to use the deck. Stay silent when resolving cards; when invoked alone, initialize the deck on the available conversation.
+description: Supply the shared Think It Through deck rules and mental model whenever the user invokes think-it-through, plays or combines any Think It Through card, invokes think-help, or asks to use the deck. Stay silent while a card or help utility produces the response; when invoked alone, initialize the deck on the available conversation.
 ---
 
 # 🧩 Think It Through Deck
@@ -38,10 +38,10 @@ FOCUS? → MOVE* → OUTPUT? → MODIFIER*
 ```
 
 - Let one focus card choose the focus for the whole combo, then clear it.
-- Run move cards from left to right and pass each result to the next.
+- Without a focus card, resolve the first card's `Default focus` directly. Do not play a hidden focus card.
+- Run move cards from left to right and pass each result to the next without an intermediate response.
 - Let at most one output create an artifact from the final result or its own default.
 - Apply all modifiers to that same final result. Change its representation without changing its substance.
-- Resolve omitted information from card defaults. Defaults do not play hidden cards.
 - Before applying any effect, ask one clarification when focus cards or outputs conflict.
 
 ## Duration and display
@@ -52,10 +52,15 @@ FOCUS? → MOVE* → OUTPUT? → MODIFIER*
 - An output lasts through its creation and confirmation flow.
 - A modifier lasts for one final representation.
 - Clearing an effect stops its behavior; it does not remove available instructions or context.
+- The user may play cards on successive turns. Resolve each play explicitly; never repeat a cleared effect from cadence or prior turns.
 - Without a played card, respond normally. Never play a move silently.
-- Show one complete trace when a combo starts. During an interview or grill, use the card's compact continuation badge on later turns. Keep natural conversation silent.
+- Show the resolved focus and played cards in one complete trace when a combo starts, including when the focus came from a default. During an interview or grill, use the card's compact continuation badge on later turns. Keep natural conversation silent.
 - Treat traces and HACP vocabulary as control metadata. Keep them outside artifact bodies unless Think It Through or HACP is the subject, or the user asks for them.
-- When loaded with cards, add no trace or response of your own.
+- When loaded with a card or `think-help`, add no trace or response of your own.
+
+## Help
+
+Treat `think-help` as the deck's utility, never as a card. It may explain the deck or recommend normal conversation, a card, or a combo. It must not play a card, change focus, or recommend domain actions.
 
 ## Resolution flow
 
