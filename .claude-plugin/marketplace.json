@@ -1,16 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "think-it-through",
-  "version": "0.7.1",
-  "description": "Develop complex ideas with AI through a domain-neutral conversation control layer.",
+  "version": "0.7.2",
+  "description": "A lightweight, domain-neutral conversation control layer for developing complex ideas with AI.",
   "owner": {
     "name": "thevzion"
   },
   "plugins": [
     {
       "name": "think-it-through",
-      "version": "0.7.1",
-      "description": "Composable commands that give the agent an explicit job, useful defaults, and a reusable result.",
+      "version": "0.7.2",
+      "description": "A lightweight, domain-neutral conversation control layer for developing complex ideas with AI.",
       "author": {
         "name": "thevzion"
       },

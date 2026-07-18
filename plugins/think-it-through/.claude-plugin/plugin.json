@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.7.1",
-  "description": "Develop complex ideas with AI through a domain-neutral conversation control layer.",
+  "version": "0.7.2",
+  "description": "A lightweight, domain-neutral conversation control layer for developing complex ideas with AI.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
