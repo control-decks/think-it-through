@@ -1,24 +1,36 @@
 ---
 name: think-next
-description: Recommend the next one to three concrete actions with the highest leverage for the latest actionable result or current focus. Use only when the user invokes think-next or explicitly asks what to do next or where to continue; never redirect the conversation silently.
+description: Recommend the next one to three concrete actions with the highest leverage for the latest actionable result or current focus. Use only when the user invokes think-next or asks what to do next; never redirect or act silently.
 ---
 
-# Think Next
+# ⚡ Think Next
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the latest actionable result, otherwise the current focus.
+**When:** The user knows enough to move but needs the highest-leverage next step.
+**On:** The latest actionable result, otherwise the current focus.
+**Move:** Recover the current stage and dependencies, identify the bottleneck, then rank concrete actions by leverage.
+**Result:** One to three actions with expected outcomes.
+**Cadence:** One-shot.
+**Boundary:** Distinguish conversational and external actions. Do not expand into a full plan or execute anything.
+**Composition:** Consume the latest result or a selected target. A projection can turn the chosen direction into a plan.
 
-- Reconstruct the current stage, unresolved dependencies, and highest-leverage bottleneck.
-- Recommend one to three actions ordered by leverage, not chronology.
-- Make each action concrete enough to start and name its expected outcome.
-- Distinguish a conversational next move from an external action when material.
-- Prefer reversible learning steps under high uncertainty.
-- Do not expand into a full plan unless `think-to-plan` is explicitly requested.
-- Never execute an action.
+## Flow
 
-For an explicit invocation, begin with:
+```mermaid
+flowchart LR
+    A["Actionable result or focus"] --> B["Recover stage and dependencies"]
+    B --> C["Find highest-leverage bottleneck"]
+    C --> D["Rank possible actions"]
+    D --> E["Select one to three"]
+    E --> F["Name action and expected outcome"]
+    F --> G["User chooses whether to act"]
+```
 
-`On: <resolved target> · Move: think-next`
+Prefer a reversible learning step when uncertainty is high.
 
-Append co-invoked `With` or `To` controls to the pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context. The user decides whether to act.
+## Display
+
+Begin with `> 🎯 **<target>** → ⚡ **NEXT**`, followed by one to three `Next actions` ordered by leverage.
+
+Append later `With` or `To` cards to the signature. A selector targets the whole combo, then expires; it never narrows evidence.

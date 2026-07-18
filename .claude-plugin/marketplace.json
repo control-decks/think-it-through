@@ -1,16 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "think-it-through",
-  "version": "0.6.0",
-  "description": "A lightweight command palette for developing ideas with AI while keeping control of long, nonlinear conversations.",
+  "version": "0.7.0",
+  "description": "A lightweight command palette and starter deck for thinking through complex ideas with AI.",
   "owner": {
     "name": "thevzion"
   },
   "plugins": [
     {
       "name": "think-it-through",
-      "version": "0.6.0",
-      "description": "Human-issued commands that give the agent an explicit job and target for the next turn.",
+      "version": "0.7.0",
+      "description": "Composable command cards that give the agent an explicit job, target, flow, and result.",
       "author": {
         "name": "thevzion"
       },

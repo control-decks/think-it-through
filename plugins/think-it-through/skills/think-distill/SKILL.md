@@ -1,26 +1,41 @@
 ---
 name: think-distill
-description: Clarify one or more thoughts in the user's latest fragmented, implicit, or hard-to-word message without merging distinct ideas, then respond or pass the result to a co-invoked control. Use only when the user invokes think-distill or explicitly asks for clarification before answering; never activate it silently.
+description: Separate and clarify one or more fragmented, implicit, or hard-to-word thoughts, expose only supported relationships, then respond or pass the result forward. Use only when the user invokes think-distill or asks for clarification before answering; never activate it silently.
 ---
 
-# Think Distill
+# 🧪 Think Distill
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the latest human message, interpreted in its context.
+**When:** Ideas arrive faster than the user can structure them.
+**On:** The latest human message, interpreted in its relevant context.
+**Move:** Separate every material thought, clarify each one, then expose supported convergence, tension, or dependency.
+**Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
+**Cadence:** One-shot; useful on successive messages.
+**Boundary:** Do not merge distinct thoughts, add advice inside the distillation, or turn clarification into another move.
+**Composition:** Used alone, respond after distilling. In a combo, pass the structured result to the next move without an intermediate answer.
 
-- Reconstruct the context that changes the meaning of each material thought.
-- Infer intended claims, questions, tensions, or connections while preserving real ambiguity and the user's voice.
-- Keep unrelated or distant thoughts separate. Create a connection only when the message or its context supports one.
-- Show `Distilled:` followed by one clear formulation for a single thought or a short list for several thoughts.
-- Keep new implications, advice, and improved claims in the response, outside the distilled formulation.
-- When used alone, respond to the distilled thought or list in the same structure.
-- When another move or projection is co-invoked, pass it the distilled result instead of answering twice.
-- If two materially different readings remain, show both and ask one discriminating question.
-- Do not turn clarification into a recap, challenge, proposal, or plan unless explicitly composed.
+## Flow
 
-For an explicit invocation, begin with:
+```mermaid
+flowchart LR
+    A["Latest message in context"] --> B["Separate material thoughts"]
+    B --> C["Clarify each thought"]
+    C --> D{"Relationship supported?"}
+    D -->|Yes| E["Expose connection or tension"]
+    D -->|No| F["Keep thoughts distinct"]
+    E --> G{"Reading still ambiguous?"}
+    F --> G
+    G -->|Yes| H["Show readings and ask once"]
+    G -->|No| I["Respond or pass forward"]
+```
 
-`On: <resolved target> · Move: think-distill`
+## Display
 
-Add co-invoked `Move`, `To`, or `With` controls to the same pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context. Never apply another control silently.
+Begin with `> 🎯 **<target>** → 🧪 **DISTILL**`, followed by:
+
+1. `Distilled` with one formulation or a short list.
+2. `Connections` only when the context supports them.
+3. `Response` when used alone.
+
+Keep implications and advice in `Response`. Append later moves, `With`, or `To` cards to the same signature. A selector targets the whole combo, then expires; it never narrows evidence.

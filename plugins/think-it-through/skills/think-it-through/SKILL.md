@@ -1,24 +1,36 @@
 ---
 name: think-it-through
-description: Activate or resume a user-led Think It Through command session by adopting the full available conversation and maintaining a coherent map of its topics and axes. Use only when the user invokes think-it-through or explicitly asks to adopt a conversation into the palette; never activate it silently.
+description: Adopt the available conversation into a user-led Think It Through session, rebuild its topics and axes, and maintain that map as the discussion continues. Use only when the user invokes think-it-through or asks to adopt the conversation; never activate it silently.
 ---
 
-# Think It Through
+# 🧩 Think It Through
 
 Context: the full available current conversation and explicitly supplied material.
 
-Default target: the current focus or the subject supplied with activation; adoption remains conversation-wide.
+**When:** A conversation has become substantial, including when activation comes late.
+**On:** The current focus or supplied subject; adoption remains conversation-wide.
+**Move:** Adopt the available context, rebuild `Conversation → Topics → Axes` with stable labels and supported states, and maintain the map in best effort.
+**Result:** A resumed session with a resolved focus and quiet continuity.
+**Cadence:** Activate once or resume when needed. Every later command still rebuilds its relevant context.
+**Boundary:** Keep the map quiet. Do not suggest a command unless asked how to continue, apply one silently, or promise memory across conversations.
+**Composition:** Establish session context. A selector can target a later combo without narrowing the adopted conversation.
 
-- Adopt earlier messages still available, even when activated late.
-- Reconstruct `Conversation → Topics → Axes` silently with stable, human-readable labels and useful axis states.
-- Continue from the resolved focus instead of restarting the discussion.
-- Maintain the living map on a best-effort basis during subsequent natural exchanges.
-- Require every explicit move, modifier, selector, or projection to reconstruct its own relevant context rather than relying only on maintained state.
-- Ask at most one high-leverage question only when no useful focus can be resolved.
-- Keep the map quiet unless the user requests a recap, representation, or artifact.
+## Flow
 
-When activated, respond compactly:
+```mermaid
+flowchart LR
+    A["Available conversation"] --> B["Adopt context"]
+    B --> C["Rebuild topics and axes"]
+    C --> D{"Focus resolved?"}
+    D -->|Yes| E["Continue from focus"]
+    D -->|No| F["Ask one useful question"]
+    E --> G["Maintain map in best effort"]
+    F --> G
+    G --> H["Each command rebuilds context"]
+```
 
-`Think It Through active · Adopted: available conversation · Current: <resolved focus>`
+## Display
 
-A `think-on-*` selector may change one control's target, but never narrows the adopted conversation. The user leads: recommend a command only when asked how to continue, and never apply one silently. Do not promise memory across conversations.
+Respond only:
+
+`> 🧩 **THINK IT THROUGH** · Adopted: available conversation · Current: <focus>`

@@ -1,22 +1,26 @@
 ---
 name: think-on-axis
-description: Target one explicitly requested move, modifier, or artifact projection at a named axis or the clearly current axis. Use only when the user invokes think-on-axis or explicitly asks to apply a control to an axis; never change target silently.
+description: Target an explicit command combo at a named axis or the clearly current axis. Use only when the user invokes think-on-axis or asks to apply commands to an axis; never change the target silently.
 ---
 
-# Think On Axis
+# 🎯 Think On Axis
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the axis named by the user, otherwise the clearly current axis.
+**When:** A combo should focus on one branch inside a topic.
+**On:** The named axis, otherwise the unambiguous current axis.
+**Move:** Resolve the human label and bind that axis to the combo in the same request or the next explicit combo.
+**Result:** An axis-level target.
+**Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.
+**Boundary:** Ask once if several axes would change the result. Do not remove outside dependencies, run a move, or create persistent state.
+**Composition:** The first move consumes this target; later moves consume the preceding result.
 
-- Resolve the human label; infer the axis only when unambiguous.
-- Ask one brief question only when multiple plausible axes would materially change the result.
-- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
-- Expire it immediately after that control.
-- Keep the result centered on the selected branch.
-- Change only the target. Reintroduce outside evidence or dependencies when they materially affect the result.
-- Do not perform an operation or create persistent state by itself.
+**Flow:** `resolve target → bind whole combo → expire`
+
+## Display
 
 When invoked alone, respond only:
 
-`Scope set: axis "<resolved axis>" · Applies to: next control`
+`Scope set: axis "<axis>" · Applies to: next combo`
+
+In a combo, use `🎯 **Axis: <axis>**` as the first item in its signature.

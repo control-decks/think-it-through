@@ -1,21 +1,26 @@
 ---
 name: think-on-conversation
-description: Target one explicitly requested move, modifier, or artifact projection at the entire available conversation. Use only when the user invokes think-on-conversation or explicitly asks to apply a control conversation-wide; never change target silently.
+description: Target an explicit command combo at the entire available conversation. Use only when the user invokes think-on-conversation or asks to apply commands conversation-wide; never change the target silently.
 ---
 
-# Think On Conversation
+# 🎯 Think On Conversation
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the full available conversation.
+**When:** A combo should cover every available topic and axis.
+**On:** The full available conversation plus imported checkpoints.
+**Move:** Resolve the conversation target and bind it to the combo in the same request or the next explicit combo.
+**Result:** A conversation-wide target.
+**Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.
+**Boundary:** Change only the target. Do not discard needed evidence, imply unavailable history, run a move, or create persistent state.
+**Composition:** The first move consumes this target; later moves consume the preceding result.
 
-- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
-- Expire it immediately after that control.
-- Include all identifiable topics and axes still available plus explicitly imported checkpoints.
-- Do not imply access to unavailable history or another conversation.
-- Change only the target. Never discard evidence or dependencies needed to reason correctly.
-- Do not perform an operation or create persistent state by itself.
+**Flow:** `resolve target → bind whole combo → expire`
+
+## Display
 
 When invoked alone, respond only:
 
-`Scope set: conversation · Applies to: next control`
+`Scope set: conversation · Applies to: next combo`
+
+In a combo, use `🎯 **Conversation**` as the first item in its signature.

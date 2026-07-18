@@ -1,24 +1,34 @@
 ---
 name: think-recap
-description: Recover the full shape of the available conversation as a structured map and coherent digest organized by topics and axes rather than chronology. Use only when the user invokes think-recap or explicitly asks for a recap or synthesis; never interrupt with an unsolicited checkpoint.
+description: Recover the full shape of the available conversation as a structured map and transversal digest organized by topics and axes. Use only when the user invokes think-recap or asks for a recap or synthesis; never insert an unsolicited checkpoint.
 ---
 
-# Think Recap
+# 🗺️ Think Recap
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the full available conversation.
+**When:** The discussion has lost its overall shape or needs a checkpoint.
+**On:** The full available conversation.
+**Move:** Reconstruct topics and axes, classify their contents and states, then synthesize the relationships across them.
+**Result:** A conceptual map followed by a coherent digest of where the thinking stands.
+**Cadence:** One-shot; repeat at useful checkpoints.
+**Boundary:** Preserve uncertainty and disagreement. Do not introduce a direction, decide, plan, or create a file.
+**Composition:** A selector can narrow the target. A modifier changes representation. `think-to-brief` materializes this explicit checkpoint.
 
-- Reconstruct the target from the entire relevant context; by default this is the whole available conversation.
-- Build `Conversation → Topics → Axes` with concise human labels.
-- Mark axes active, paused, resolved, or superseded when supported.
-- Capture material ideas, assumptions, proposals, decisions, tensions, contradictions, dependencies, and open questions.
-- Then write a transversal digest: what the conversation is really about, how its parts connect, what changed, and where it stands.
-- Prefer conceptual structure over chronology. Preserve uncertainty and disagreement.
-- Do not introduce a new direction, decide, plan, or create a file.
+## Flow
 
-For an explicit invocation, begin with:
+```mermaid
+flowchart LR
+    A["Selected conversation context"] --> B["Recover topics"]
+    B --> C["Recover axes"]
+    C --> D["Classify content and states"]
+    D --> E["Surface tensions and dependencies"]
+    E --> F["Map"]
+    F --> G["Transversal digest"]
+```
 
-`On: <resolved target> · Move: think-recap`
+## Display
 
-Append ` · With: diagrams|reasoning-map` or ` · To: brief` when explicitly composed. A co-invoked brief materializes this checkpoint. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context.
+Begin with `> 🎯 **<target>** → 🗺️ **RECAP**`, followed by `Map` and `Digest`.
+
+Append `+ 📊 **DIAGRAMS**`, `+ 🧠 **REASONING MAP**`, or `→ 📄 **BRIEF**` when composed. A selector targets the whole combo, then expires; it never narrows evidence.

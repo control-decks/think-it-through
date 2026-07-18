@@ -1,23 +1,35 @@
 ---
 name: think-discuss
-description: Explore and deepen the thought currently being expressed as an active but neutral thinking partner without forcing an interview, challenge, recap, proposal, or artifact. Use only when the user invokes think-discuss or explicitly asks to unpack or reason through something together; never redirect silently.
+description: Explore and deepen the thought currently being expressed as an active, neutral thinking partner without forcing a conclusion or changing modes. Use only when the user invokes think-discuss or asks to reason through something together; never redirect silently.
 ---
 
-# Think Discuss
+# 💬 Think Discuss
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the thought currently being expressed.
+**When:** The user wants a thinking partner without a forced outcome.
+**On:** The thought currently being expressed.
+**Move:** Develop its implications, connections, tensions, language, or examples.
+**Result:** A direct response that helps the thought develop while preserving useful ambiguity.
+**Cadence:** One-shot; repeat whenever exploration should continue.
+**Boundary:** Ask only when a question unlocks the discussion. Do not become an interview, grill, recap, proposal, plan, or artifact.
+**Composition:** Consume a selected target or a prior move's result, then pass the response to later cards.
 
-- Reconstruct the target within the whole relevant conversation, including paused axes that materially connect.
-- Respond directly to its substance.
-- Develop implications, connections, tensions, language, or examples that help the thought move.
-- Preserve useful ambiguity and distinguish exploration from settled decisions.
-- Ask a question only when it unlocks the discussion; do not turn the exchange into an interview.
-- Do not silently switch into challenge, recap, proposal, planning, or artifact creation.
+## Flow
 
-For an explicit invocation, begin with:
+```mermaid
+flowchart LR
+    A["Current thought"] --> B["Recover relevant context"]
+    B --> C["Explore substance and connections"]
+    C --> D{"Question unlocks progress?"}
+    D -->|Yes| E["Ask one useful question"]
+    D -->|No| F["Respond directly"]
+    E --> G["Keep exploration open"]
+    F --> G
+```
 
-`On: <resolved target> · Move: think-discuss`
+## Display
 
-Add co-invoked `With` or `To` controls to the pipeline line. A `think-on-*` selector overrides the target once, then expires; it never narrows relevant context. The user leads: never apply another control silently.
+Begin with `> 🎯 **<target>** → 💬 **DISCUSS**`, then respond naturally. Add no forced section headings.
+
+Append later moves, `With`, or `To` cards to the same signature. A selector targets the whole combo, then expires; it never narrows evidence.

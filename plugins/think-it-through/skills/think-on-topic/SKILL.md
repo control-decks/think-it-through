@@ -1,22 +1,26 @@
 ---
 name: think-on-topic
-description: Target one explicitly requested move, modifier, or artifact projection at a named topic or the clearly current topic. Use only when the user invokes think-on-topic or explicitly asks to apply a control to a topic; never change target silently.
+description: Target an explicit command combo at a named topic or the clearly current topic. Use only when the user invokes think-on-topic or asks to apply commands to a topic; never change the target silently.
 ---
 
-# Think On Topic
+# 🎯 Think On Topic
 
 Context: the full relevant conversation and explicitly supplied material.
 
-Default target: the topic named by the user, otherwise the clearly current topic.
+**When:** A combo should focus on one topic and all its relevant axes.
+**On:** The named topic, otherwise the unambiguous current topic.
+**Move:** Resolve the human label and bind that topic to the combo in the same request or the next explicit combo.
+**Result:** A topic-level target.
+**Cadence:** One-shot; expire after the combo. A multi-turn move retains the resolved target until its loop ends.
+**Boundary:** Ask once if several topics would change the result. Do not remove outside dependencies, run a move, or create persistent state.
+**Composition:** The first move consumes this target; later moves consume the preceding result.
 
-- Resolve the human label; infer the topic only when unambiguous.
-- Ask one brief question only when multiple plausible topics would materially change the result.
-- Apply this selector to a move, modifier, or projection in the same request, or to the next explicit control.
-- Expire it immediately after that control.
-- Include every relevant axis under the topic.
-- Change only the target. Reintroduce outside evidence or dependencies when they materially affect the result.
-- Do not perform an operation or create persistent state by itself.
+**Flow:** `resolve target → bind whole combo → expire`
+
+## Display
 
 When invoked alone, respond only:
 
-`Scope set: topic "<resolved topic>" · Applies to: next control`
+`Scope set: topic "<topic>" · Applies to: next combo`
+
+In a combo, use `🎯 **Topic: <topic>**` as the first item in its signature.
