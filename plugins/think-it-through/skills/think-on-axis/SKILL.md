@@ -5,14 +5,13 @@ description: Apply an explicit command combo to a named axis or the clearly curr
 
 # 🎯 Think On Axis
 
-**Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** A combo should focus on one branch inside a topic.
-**Applies to by default:** The named axis, otherwise the unambiguous current axis.
-**Job:** Resolve the human label and apply that axis to the combo in the same request or the next explicit combo.
+**Works on by default:** The named axis, otherwise the unambiguous current axis.
+**Effect:** Resolve the human label and apply that axis to the combo in the same request or the next explicit combo.
 **Result:** An axis-level focus.
-**Runs for:** One combo, then clear. A multi-turn interview or grill keeps the selected focus until its loop ends.
+**Duration:** One combo, then clear. A multi-exchange interview or grill keeps the selected focus until its loop ends.
 **Limits:** Ask once if several axes could change the result. The agent can still use relevant context outside the focus. Do not create a new axis, run another command, or create persistent state.
-**Combines with:** Apply before all jobs in semantic order, even when written elsewhere. The first job works on this focus; later jobs work on the preceding result.
+**Combines with:** Apply before all move cards in semantic order, even when written elsewhere. The first move works on this focus; later moves work on the preceding result.
 
 ## Flow
 
@@ -24,4 +23,4 @@ When invoked alone, respond only:
 
 `Focus set: axis "<axis>" · Applies to: next combo`
 
-In a combo, use `🎯 **Axis: <axis>**` as the first item in the trace. Ask one clarification if another selector appears in the same combo.
+In a combo, use `🎯 **Axis: <axis>**` as the first item in the trace. Ask one clarification if another focus card appears in the same combo.

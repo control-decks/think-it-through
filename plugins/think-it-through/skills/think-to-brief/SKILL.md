@@ -5,14 +5,13 @@ description: Turn the full available conversation or a result from the same comb
 
 # 📄 Think To Brief
 
-**Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**Applies to by default:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
-**Job:** Use the canonical map or supplied result to verify coverage, infer a useful document form and audience, then use the subject's vocabulary and the audience's expected structure.
+**Works on by default:** The full available conversation, the same focus as `/think-on-conversation` when used alone. A result supplied by a combo takes priority.
+**Effect:** Use the canonical map or supplied result to verify coverage, infer a useful document form and audience, then use the subject's vocabulary and the audience's expected structure.
 **Result:** A portable Markdown checkpoint that covers the relevant material, with purpose, overall synthesis, decisions, tensions, open questions, and where to resume when useful.
-**Runs for:** One output, with confirmation only when a destination must be inferred or an existing artifact could be overwritten.
-**Limits:** Keep the trace and protocol vocabulary outside the artifact body unless Think It Through is the subject or the user requests them. Do not run an implicit recap, invent conclusions, claim cross-session memory, synchronize later, or overwrite without permission.
-**Combines with:** Use the final job result or the default focus. Modifiers apply to the resulting brief. Ask one clarification if another output appears in the combo. The default resolves directly; it does not run a hidden selector.
+**Duration:** One output flow, including any required confirmation.
+**Limits:** Keep the trace, HACP, cards, combos, and deck vocabulary outside the artifact body unless they are the subject or the user requests them. Do not run an implicit recap, invent conclusions, claim cross-session memory, synchronize later, or overwrite without permission.
+**Combines with:** Use the final move result or the default focus. Modifiers apply to the resulting brief. Ask one clarification if another output appears in the combo. The default resolves directly; it does not play a hidden focus card.
 
 ## Flow
 
@@ -34,6 +33,6 @@ Follow an applicable method or project convention; otherwise use portable Markdo
 
 ## Format
 
-Add `→ 📄 **BRIEF**` after the final job in the combo trace, or begin with `> 🎯 **<focus>** → 📄 **BRIEF**` when used alone. Add modifiers with `+`.
+Add `→ 📄 **BRIEF**` after the final move in the combo trace, or begin with `> 🎯 **<focus>** → 📄 **BRIEF**` when used alone. Add modifiers with `+`.
 
 Keep that trace in the conversational envelope, outside the brief. Show status only while awaiting confirmation or overwrite permission. A later session resumes only when the user supplies the brief or its content.

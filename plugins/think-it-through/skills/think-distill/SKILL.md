@@ -5,14 +5,13 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 
 # 🧪 Think Distill
 
-**Context:** The full relevant conversation and explicitly supplied material.
 **Use when:** Ideas arrive faster than the user can structure them.
-**Applies to by default:** The latest human message, interpreted in its relevant context.
-**Job:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
+**Works on by default:** The latest human message, interpreted in its relevant context.
+**Effect:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
-**Runs for:** One response; useful on successive messages.
-**Limits:** Do not merge distinct thoughts, invent connections, place advice inside the distillation, or replace clarification with another job.
-**Combines with:** Alone, respond after distilling. In a combo, pass the structured result to the next job without an intermediate answer.
+**Duration:** One agent turn. Play it again on successive messages when useful.
+**Limits:** Do not merge distinct thoughts, invent connections, place advice inside the distillation, or replace clarification with another effect.
+**Combines with:** Alone, respond after distilling. In a combo, pass the structured result to the next move card without an intermediate answer.
 
 ## Flow
 
@@ -37,4 +36,4 @@ Begin the combo trace with `> 🎯 **<focus>** → 🧪 **DISTILL**`, then use:
 2. `Connections` only when the context supports them.
 3. `Response` when used alone.
 
-Keep implications and advice in `Response`. Add later jobs with `→`; show the trace once for the complete combo.
+Keep implications and advice in `Response`. Add later move cards with `→`; show the trace once for the complete combo.

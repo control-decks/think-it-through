@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
-  "version": "0.8.1",
-  "description": "A lightweight command deck for developing complex ideas with AI across long, branching conversations.",
+  "version": "0.9.0",
+  "description": "The first thinking deck built on the Human-Agent Card Protocol, with 14 conversation cards for developing complex ideas with AI.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"
