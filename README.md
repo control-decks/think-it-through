@@ -2,70 +2,90 @@
 
 **Think freely. The agent follows your lead.**
 
-Think It Through is a lightweight command palette for developing ideas with AI across long, branching conversations.
+A lightweight command deck for developing complex ideas with AI.
 
-Each command gives the agent one job and tells it what to work on by default, so you can write the thought and choose what happens next.
+Talk normally. Play a card when you want the agent to clarify, explore, challenge, recover, or preserve the thought.
+
+Each command invokes a self-describing card: a reusable contract for the agent's focus, job, and result.
 
 ## Why commands
 
-Ideas can arrive faster than you can package them. Attention jumps between threads; question batches break the flow. For some people with ADHD, stopping to reformat a thought creates friction.
+Ideas can arrive faster than you can package them. Attention jumps between threads, and batches of questions break the flow. For some people with ADHD, stopping to reformat a thought creates friction.
 
 You mix the thought with instructions:
 
-> This could be a command palette, a deck, or a human-agent interface. Separate the ideas, preserve their differences, connect them, then respond.
+> This could be a method, a set of helpers, or a shared protocol. Separate the ideas, preserve their differences, connect them, then respond.
 
-The thought comes first. The rest directs the response.
+You state the thought, then direct the agent.
 
-Think It Through names the repeated instruction. You keep the thought's form; the agent adapts its next response. Without a command, it responds as usual.
+Each card is a reusable conversation helper with one clear job and a useful default. Spend less attention instructing the agent and more attention developing the thought.
+
+Without a card, the agent responds normally.
 
 ## See it once
 
 ```text
-Command palette, visual deck, human-agent UX. These ideas may connect.
+The product might be a method, a set of helpers, and a shared protocol.
+Those ideas overlap, but I do not want to collapse them.
 /think-distill
 ```
-
-The result:
 
 ```text
 > 🎯 Latest message → 🧪 DISTILL
 
 Distilled
-- Command palette: the interface.
-- Starter deck: its visual presentation.
-- Human-agent UX: the wider problem.
+- Method: the approach a person follows.
+- Helpers: operations used during a conversation.
+- Protocol: the rules that make those operations coherent.
 
 Connections
-The palette can use a deck presentation inside the wider UX.
+A protocol can define helpers without prescribing a method.
 
 Response
-Lead with command palette. It says what the product does.
+Lead with the helpers. Introduce the protocol after the first example.
 ```
 
-`think-distill` separated, clarified, connected only what belonged together, then responded. Each card defines a concrete response contract.
+```text
+Talk normally
+→ play one card
+→ repeat or switch cards
+→ build a combo when more control becomes useful
+```
 
-Think It Through adds a domain-neutral conversation control layer to your method.
+```text
+/think-distill → command
+🧪 DISTILL     → card
+```
 
 ## How it works
 
-You supply ideas and judgment. A command states the next job. The agent clarifies, connects, questions, challenges, or reconstructs. The result feeds your next thought.
+You supply ideas and judgment. A card names the agent's next job. Its result feeds your next thought.
 
 ```mermaid
 flowchart LR
-    H["Human thought"] --> C["Named command"]
+    H["Human thought"] --> C["Played card"]
     C --> A["Explicit agent job"]
     A --> R["Structured result"]
     R --> N["New or clearer thought"]
     N --> H
 ```
 
-`Context` covers all relevant material. `Focus` is what the combo works on; narrowing it keeps the context.
+The protocol gives every card the same concepts:
 
-Commands shape one response. Repeat, switch, or talk without one. Only `interview` and `grill` continue across turns.
+- `Context` contains the full relevant conversation and supplied material.
+- `Focus` selects what a combo works on without discarding useful context.
+- `Conversation → Topics → Axes` supplies navigation when a card needs it.
+- `SELECTOR? → JOB* → OUTPUT? → MODIFIER*` is the combo order.
 
-## Start with six commands
+The protocol applies when you use Think It Through or play a card. No initialization is required.
 
-I recommend these six starting points. They remain revisable.
+### Optional protocol initialization
+
+Play [`/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md) to initialize the protocol on the available conversation. Alone, it confirms context and focus. With cards, it stays silent.
+
+## Start with six cards
+
+I recommend these six starting points from my conversations. They remain open to revision.
 
 ### 🧪 [`/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md)
 
@@ -100,7 +120,7 @@ conversation or result → BRIEF   → portable checkpoint
 accepted direction     → PLAN    → execution plan
 ```
 
-The agent uses this conversation map:
+Cards reconstruct this navigation model when they need it:
 
 ```text
 Conversation
@@ -112,9 +132,9 @@ Conversation
         └── open questions
 ```
 
-`/think-recap` creates a conversational checkpoint. `/think-to-brief` creates a portable snapshot. `/think-to-plan` creates operational structure without authorizing execution.
+Axes use short labels and can be active, paused, resolved, or replaced. `/think-recap` displays the map. Selectors navigate it without requiring a prior recap. `/think-to-brief` preserves a snapshot; `/think-to-plan` creates operational structure without authorizing execution.
 
-A new session resumes from a brief or content you provide. There is no hidden memory or synchronization.
+A new session resumes only from a brief or other context you provide. Think It Through does not promise hidden memory or synchronization.
 
 ## Install
 
@@ -140,7 +160,9 @@ claude plugin install think-it-through@think-it-through --scope user
 
 ## Build a combo
 
-Each card declares what it applies to by default:
+Type a command to play one card. Combine commands to play a combo.
+
+Each card has a default:
 
 ```text
 /think-recap
@@ -149,7 +171,7 @@ Each card declares what it applies to by default:
 └── applies by default
 ```
 
-An explicit selector changes that focus:
+A selector changes the focus for one combo:
 
 ```text
 /think-on-axis "Artifacts" + /think-recap
@@ -158,11 +180,7 @@ An explicit selector changes that focus:
 └── selector changed the focus
 ```
 
-`/think-recap` shares this focus with `/think-on-conversation + /think-recap`. Standalone `/think-to-brief` has the same equivalence; a combo result takes priority.
-
-Defaults resolve the omitted focus directly. They do not invoke hidden cards. When an existing selector expresses the exact same focus, the card names that explicit equivalent. Modifiers remain explicit.
-
-Natural language translates into existing commands:
+Defaults resolve omitted information without playing hidden cards. `/think-recap` matches `/think-on-conversation + /think-recap`. Standalone `/think-to-brief` does too, unless a job supplies its result.
 
 ```text
 Intent
@@ -181,62 +199,77 @@ Resolved trace
 └── focus              └── job      └── job       └── artifact └── modifier
 ```
 
-The typed pipeline is:
+Jobs pass results left to right. A selector chooses the focus, an output creates an artifact, and modifiers represent the same final result. Conflicts require clarification.
 
-```text
-SESSION                         standalone
-SELECTOR? → JOB* → OUTPUT? → MODIFIER*
-```
+For technical readers, a combo acts like a semantic query over a generative engine: the operation is explicit while the content remains generative.
 
-Card type sets order. Jobs pass results left to right; one selector and output are allowed. Modifiers read the same final result. Conflicts require clarification.
+## The deck
 
-Read the combo as a high-level query over a generative engine. Use the available conversation as working state. The selector chooses what to work on, and jobs name transformations. Outputs create artifacts; modifiers change their representation. The query makes the operation explicit; the content remains generative.
+The protocol composes 14 cards.
 
-## Full command reference
+### Job cards
 
-| Command | Type | Applies to by default | Result | Runs for |
+| Card | Play when | Works on by default | Result | Stays in play |
 | --- | --- | --- | --- | --- |
-| [🧩 `/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md) | Session | Current focus | Session map | Session |
-| [🧪 `/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md) | Job | Latest message | Clarified thoughts | One response |
-| [💬 `/think-discuss`](plugins/think-it-through/skills/think-discuss/SKILL.md) | Job | Current thought | Open exploration | One response |
-| [🔎 `/think-interview`](plugins/think-it-through/skills/think-interview/SKILL.md) | Job | Unclear subject | Shared understanding | Multi-turn |
-| [🔥 `/think-grill`](plugins/think-it-through/skills/think-grill/SKILL.md) | Job | Testable idea | Verdict or risks | Multi-turn |
-| [🗺️ `/think-recap`](plugins/think-it-through/skills/think-recap/SKILL.md) | Job | Available conversation | Map and synthesis | One response |
-| [🧭 `/think-propose`](plugins/think-it-through/skills/think-propose/SKILL.md) | Job | Open question | Strong direction | One response |
-| [⚡ `/think-next`](plugins/think-it-through/skills/think-next/SKILL.md) | Job | Actionable result | Next actions | One response |
-| [🎯 `/think-on-conversation`](plugins/think-it-through/skills/think-on-conversation/SKILL.md) | Selector | Conversation | Focus | One combo |
-| [🎯 `/think-on-topic`](plugins/think-it-through/skills/think-on-topic/SKILL.md) | Selector | Topic | Focus | One combo |
-| [🎯 `/think-on-axis`](plugins/think-it-through/skills/think-on-axis/SKILL.md) | Selector | Axis | Focus | One combo |
-| [📄 `/think-to-brief`](plugins/think-it-through/skills/think-to-brief/SKILL.md) | Output | Conversation or final result | Thinking Brief | One output |
-| [📋 `/think-to-plan`](plugins/think-it-through/skills/think-to-plan/SKILL.md) | Output | Executable direction | Execution Plan | One output |
-| [📊 `/think-with-diagrams`](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Modifier | Final result | Diagram | One response |
-| [🧠 `/think-with-reasoning-map`](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Modifier | Final reasoning | Reasoning map | One response |
+| [🧪 `/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md) | Thoughts arrive tangled | Latest message | Clear thoughts | Once |
+| [💬 `/think-discuss`](plugins/think-it-through/skills/think-discuss/SKILL.md) | You want to explore | Current thought | Developed thought | Once |
+| [🔎 `/think-interview`](plugins/think-it-through/skills/think-interview/SKILL.md) | Context is missing | Unclear subject | Shared understanding | Multi-turn |
+| [🔥 `/think-grill`](plugins/think-it-through/skills/think-grill/SKILL.md) | An idea needs pressure | Testable idea | Verdict or risks | Multi-turn |
+| [🗺️ `/think-recap`](plugins/think-it-through/skills/think-recap/SKILL.md) | You lost the shape | Conversation | Map and synthesis | Once |
+| [🧭 `/think-propose`](plugins/think-it-through/skills/think-propose/SKILL.md) | A question needs direction | Open question | Direction and tradeoff | Once |
+| [⚡ `/think-next`](plugins/think-it-through/skills/think-next/SKILL.md) | You are ready to move | Actionable result | Next actions | Once |
 
-## Fit it to your stack
+### Selector cards
 
-Use it with [Superpowers](https://github.com/obra/superpowers), [Ponytail](https://github.com/DietrichGebert/ponytail), [Stop Slop](https://github.com/hardikpandya/stop-slop), and your templates. [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) and [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin) preserve learning across later cycles.
+| Card | Chooses | Applies for |
+| --- | --- | --- |
+| [🎯 `/think-on-conversation`](plugins/think-it-through/skills/think-on-conversation/SKILL.md) | Available conversation | One combo |
+| [🎯 `/think-on-topic`](plugins/think-it-through/skills/think-on-topic/SKILL.md) | One named topic | One combo |
+| [🎯 `/think-on-axis`](plugins/think-it-through/skills/think-on-axis/SKILL.md) | One named axis | One combo |
 
-## Make a command from something you keep repeating
+### Output cards
+
+| Card | Creates | Uses by default |
+| --- | --- | --- |
+| [📄 `/think-to-brief`](plugins/think-it-through/skills/think-to-brief/SKILL.md) | Thinking Brief | Conversation or result |
+| [📋 `/think-to-plan`](plugins/think-it-through/skills/think-to-plan/SKILL.md) | Execution Plan | Executable direction |
+
+### Modifier cards
+
+| Card | Adds | Keeps unchanged |
+| --- | --- | --- |
+| [📊 `/think-with-diagrams`](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Useful diagram | Substance and conclusions |
+| [🧠 `/think-with-reasoning-map`](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Reasoning map | Logic and uncertainty |
+
+## Use it with the way you already work
+
+Think It Through controls the next response within a personal practice, team method, research workflow, creative process, or engineering system.
+
+Combine cards with domain skills, templates, rules, and tools. Examples include [Superpowers](https://github.com/obra/superpowers), [Ponytail](https://github.com/DietrichGebert/ponytail), [Stop Slop](https://github.com/hardikpandya/stop-slop), [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin), and [Compound Knowledge](https://github.com/EveryInc/compound-knowledge-plugin).
+
+These are examples, not required integrations or an exhaustive list.
+
+## Make a card from something you keep repeating
 
 `/think-distill` began as: “Separate these thoughts, clarify each, show supported connections, then respond.”
 
 ```text
 repeated instruction
-→ define one job and what it applies to by default
+→ define one job and its useful default
 → define result and limits
 → test across subjects
 → keep, revise, merge, or remove
 ```
 
 ```text
-Context → Use when → Applies to by default → Job → Result
-→ Runs for → Limits → Combines with → Flow → Format
+Context → Play when → Works on by default → Job → Result
+→ Stays in play → Limits → Combines with → Flow → Format
 ```
 
-Keep domain cards in your stack. [Open an issue](https://github.com/thevzion/think-it-through/issues) for obstructive defaults, overlaps, or missing instructions.
+Keep specialized cards outside the shared deck until they recur across subjects and produce a distinct result. [Open an issue](https://github.com/thevzion/think-it-through/issues) for obstructive defaults, overlaps, or missing instructions.
 
 ## Origin and license
 
-Grill Me supplied the seed: a short name for a reusable response contract. Think It Through extends that pattern across complex conversations.
+Grill Me supplied the seed: a short name for a reusable response contract. Think It Through extends that pattern into a command deck for complex conversations.
 
 License: [MIT](LICENSE).

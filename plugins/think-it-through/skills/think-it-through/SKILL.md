@@ -1,35 +1,68 @@
 ---
 name: think-it-through
-description: Adopt the available conversation and supplied checkpoints into a user-led session, rebuild its topics and axes, and maintain that map as context allows. Use only when the user invokes think-it-through or asks to adopt the conversation; never activate it silently.
+description: Supply the shared Think It Through protocol for user-led, composable command cards over the full relevant context. Use whenever the user invokes think-it-through, invokes any Think It Through card, combines its cards, or explicitly asks to use the method. When used with cards, stay silent and let them produce the response; when invoked alone, initialize the protocol on the available conversation.
 ---
 
-# 🧩 Think It Through
+# 🧩 Think It Through Protocol
 
-**Context:** The full available conversation and explicitly supplied material, including a brief or other checkpoint.
-**Use when:** A conversation has become substantial, including when activation comes late or a supplied checkpoint should restart the thinking.
-**Applies to by default:** The current focus or supplied subject; adoption remains conversation-wide.
-**Job:** Adopt the available context, rebuild `Conversation → Topics → Axes` with stable human labels and supported states, then maintain that map as the available context allows.
-**Result:** An adopted session with a resolved focus and quiet continuity.
-**Runs for:** One activation, with the map maintained silently until context is lost or the session ends.
-**Limits:** Do not suggest a command unless asked how to continue, apply one silently, claim access to discarded context, or promise memory or synchronization across sessions.
-**Combines with:** Standalone. Later commands rebuild their relevant context; selectors can focus a combo without reducing the adopted conversation.
+Treat this skill as the protocol for the deck, not as a card or job.
+
+## Shared model
+
+- **Context:** Use the full relevant conversation and explicitly supplied material, including briefs or other checkpoints.
+- **Focus:** Resolve the part the combo works on. Keep relevant context outside that focus available for reasoning.
+- **Navigation:** Reconstruct `Conversation → Topics → Axes` when navigation is needed. Use short human labels. Topics hold major subjects; axes hold stable branches and may be active, paused, resolved, or replaced.
+- **State:** Use only context still available or supplied. Do not claim hidden state, synchronization, or memory across sessions.
+
+## Card model
+
+Use these terms consistently:
+
+```text
+command  → slash syntax typed by the human
+card     → self-describing contract invoked by a command
+deck     → the 14 included cards
+combo    → several cards resolved together
+job      → operation performed by a card
+```
+
+Resolve a combo in semantic order:
+
+```text
+SELECTOR? → JOB* → OUTPUT? → MODIFIER*
+```
+
+- Let one selector choose the focus for the whole combo, then clear it.
+- Run jobs from left to right and pass each result to the next.
+- Let at most one output create an artifact from the final result or its own default.
+- Apply all modifiers to that same final result. Change its representation without changing its substance.
+- Resolve omitted information from card defaults. Defaults do not play hidden cards.
+- Ask one clarification when selectors or outputs conflict.
+- Keep interview or grill in play until it completes or the user stops, redirects, or plays another card. Clear other cards after their result.
+
+## Control and display
+
+- Without a played card, respond as usual.
+- Run only jobs the user named or requested explicitly.
+- Show one compact trace for the complete combo. Keep natural conversation silent.
+- When loaded with cards, add no protocol trace or response of your own.
 
 ## Flow
 
 ```mermaid
 flowchart LR
-    A["Available conversation and checkpoints"] --> B["Adopt context"]
-    B --> C["Rebuild topics and axes"]
-    C --> D{"Focus clear?"}
-    D -->|Yes| E["Continue from focus"]
-    D -->|No| F["Ask one useful question"]
-    E --> G["Maintain map as context allows"]
-    F --> G
-    G --> H["Later commands rebuild context"]
+    A["Method or card invoked"] --> B["Recover context"]
+    B --> C["Resolve focus and cards"]
+    C --> D{"Cards present?"}
+    D -->|Yes| E["Run semantic order"]
+    D -->|No| F["Confirm protocol"]
+    E --> G["Return one trace and result"]
 ```
 
 ## Format
 
-Respond only:
+When invoked alone, respond only:
 
-`> 🧩 **THINK IT THROUGH** · Adopted: available conversation and supplied checkpoints · Current: <focus>`
+`> 🧩 **THINK IT THROUGH** · Protocol initialized · Context: available conversation · Focus: <resolved focus>`
+
+Use `multiple active threads` when no single focus is clear. Do not ask the user to choose.
