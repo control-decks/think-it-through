@@ -11,7 +11,7 @@ It is built on the
 [Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol),
 which gives cards shared rules for composition and lifecycle.
 
-![Six blank conversation cards turn branching discussion paths into an organized deck](assets/think-it-through-hero.jpg)
+![Two collaborators prepare to play the Distill card against a hydra of tangled instructions](assets/think-it-through-hero.jpg)
 
 ## The problem
 
@@ -29,6 +29,8 @@ A card turns the repeated instruction into a visible contract:
 ```text
 /think-distill
 ```
+
+![Two collaborators face a hydra made of tangled instructions](assets/think-it-through-card-loop.gif)
 
 Use cards to:
 
