@@ -1,55 +1,52 @@
 # Think It Through
 
-**Stop rewriting the same instructions. Play a card.**
+**Stop rewriting the same instructions while thinking with AI. Play a card.**
 
-Think It Through is an open-source deck of conversation cards for directing an
-agent while you work through an idea. Talk normally, then use a short command
-when you want the next response to clarify, explore, question, challenge,
-recover, or preserve your thinking.
-
-It is built on the
-[Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol),
-which gives cards shared rules for composition and lifecycle.
+Think It Through is an open-source deck of conversation cards for working
+through ideas with an agent. Keep writing as usual, then play a card when you
+want the next response to clarify, explore, question, challenge, recover, or
+direct your thinking.
 
 ![Two collaborators prepare to play the Distill card against a hydra of tangled instructions](assets/think-it-through-hero.jpg)
 
-## The problem
+## The interruption
 
-You know what the agent should do next, but expressing it takes another
-paragraph:
-
-> Separate the ideas first. Clarify each one without merging them. Then show
-> only the relationships supported by what I said, and respond.
-
-That instruction works. It also interrupts the thought and gets rewritten in
-slightly different words every time.
-
-A card turns the repeated instruction into a visible contract:
+I use AI before an idea is ready. My messages often end up doing two jobs at
+once:
 
 ```text
+The product may be a method, an interface, and a protocol. Some of those ideas
+overlap, but perhaps I am forcing them together.
+
+Separate the ideas. Clarify each one without merging them. Preserve useful
+connections, and do not choose a direction yet.
+```
+
+The first paragraph carries the thought. The second tells the agent how to
+respond. I kept rewriting that second paragraph as the subject changed.
+
+`DISTILL` turns it into a card:
+
+```text
+The product may be a method, an interface, and a protocol. Some of those ideas
+overlap, but perhaps I am forcing them together.
+
 /think-distill
 ```
 
 ![Two collaborators face a hydra made of tangled instructions](assets/think-it-through-card-loop.gif)
 
-Use cards to:
+The command carries the full response contract: separate the claims, clarify
+them, preserve supported relationships, and return useful material for the
+next exchange. Without a card, the agent gives its usual response.
 
-- replace repeated meta-instructions with short commands;
-- redirect a confused response without restarting the conversation;
-- recover the structure of a long discussion;
-- combine operations, such as `RECAP + DIAGRAMS`;
-- keep the human in charge of direction and judgment;
-- create a brief or plan only when explicitly requested.
-
-No card is required. Ordinary conversation stays ordinary.
-
-## See one complete exchange
+## See `DISTILL` play
 
 **Human**
 
 ```text
-The product may be a method, an interface, and a protocol. Some of those
-ideas overlap, but perhaps I am forcing them together.
+The product may be a method, an interface, and a protocol. Some of those ideas
+overlap, but perhaps I am forcing them together.
 
 /think-distill
 ```
@@ -60,31 +57,25 @@ ideas overlap, but perhaps I am forcing them together.
 
 **Distilled**
 
-- As a method, the product is a repeatable way of working.
-- As an interface, it is how a person directs and observes the work.
-- As a protocol, it is a set of rules that different implementations can
-  follow.
+- A method is a repeatable way of working.
+- An interface is how a person directs and observes the work.
+- A protocol supplies rules that different implementations can follow.
 
 **Connections**
 
-The three ideas can describe layers of one system, but the thought does not yet
-show that they must be one product. A method can prescribe a way of working
-while a protocol stays neutral about the method.
+The three ideas may describe layers of one system. The thought does not
+establish that they must share one product boundary. A method can prescribe a
+way of working while a protocol stays neutral about the method.
 
 **Response**
 
-Decide which layer people adopt first. The other two can support it without
-needing the same product boundary.
+Choose which layer people adopt first. Let the other two support it without
+forcing them into the same product.
 
-**Useful next thought**
+`DISTILL` separated the claims and preserved the unresolved product boundary.
+The next message can continue from clearer material.
 
-> The interface is what people adopt. The method can stay optional, and the
-> protocol can sit underneath both.
-
-The card did more than label the turn. It separated the claims, preserved the
-tension, and returned clearer material for the next exchange.
-
-## Install
+## Install and play
 
 ### Codex
 
@@ -110,36 +101,81 @@ The examples below use the portable shorthand `/think-*`.
 
 ## Start with six cards
 
-These six cover the main loop from a rough thought to a tested direction. They
-came from instructions I kept repeating, not from a claim that every thinking
-process needs the same primitives.
+I kept reaching for the same six moves while developing ideas. Each card
+captures one of them.
 
-- [🧪 `/think-distill`](plugins/think-it-through/skills/think-distill/SKILL.md)
-  separates and clarifies thoughts, then exposes supported relationships.
-- [💬 `/think-discuss`](plugins/think-it-through/skills/think-discuss/SKILL.md)
-  develops the current thought without forcing a conclusion.
-- [🔎 `/think-interview`](plugins/think-it-through/skills/think-interview/SKILL.md)
-  resolves missing understanding through one focused question at a time.
-- [🔥 `/think-grill`](plugins/think-it-through/skills/think-grill/SKILL.md)
-  pressure-tests one branch with a recommendation and question on each
-  exchange.
-- [🗺️ `/think-recap`](plugins/think-it-through/skills/think-recap/SKILL.md)
-  recovers the conversation as a navigable map and synthesis.
-- [🧭 `/think-propose`](plugins/think-it-through/skills/think-propose/SKILL.md)
-  offers one direction with its decisive tradeoff and main risk.
+| When your thinking needs... | Play | The agent will... |
+| --- | --- | --- |
+| structure | [🧪 `DISTILL`](plugins/think-it-through/skills/think-distill/SKILL.md) | separate and clarify the thought |
+| room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/think-discuss/SKILL.md) | explore without forcing a conclusion |
+| missing information | [🔎 `INTERVIEW`](plugins/think-it-through/skills/think-interview/SKILL.md) | ask one focused question at a time |
+| pressure | [🔥 `GRILL`](plugins/think-it-through/skills/think-grill/SKILL.md) | test one weak branch per exchange |
+| orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/think-recap/SKILL.md) | recover a map and synthesis |
+| a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/think-propose/SKILL.md) | offer one choice with its tradeoff and risk |
 
 Repeat a card, switch cards, or return to normal conversation as the thought
 changes.
 
+## Combine two cards
+
+Cards pass their results from left to right:
+
+```text
+The product may be a method, an interface, and a protocol.
+
+/think-distill
++ /think-propose
+```
+
+```text
+🎯 Latest message → 🧪 DISTILL → 🧭 PROPOSE
+```
+
+The agent applies `DISTILL` first. `PROPOSE` receives the clarified result and
+selects one direction, with its decisive tradeoff and main risk. You can stop
+after clarification or ask for a direction in the same turn.
+
+## Stay with a hard question
+
+Some cards need more than one exchange:
+
+```text
+I think the interface should be the first product.
+
+/think-grill
+```
+
+```text
+🎯 Current testable idea → 🔥 GRILL
+
+Recommendation
+Treat the interface as the adoption surface, but keep the method optional.
+
+Question
+If the protocol vanished tomorrow, what value would the interface still
+deliver on its own?
+```
+
+`GRILL` stays active while you answer each question. It ends with a verdict, or
+when you stop or redirect it. `INTERVIEW` uses the same multi-exchange shape to
+build shared understanding.
+
+## The rules are short
+
+- Keep writing as usual when you do not need a card.
+- You play each card. The agent does not choose a move for you.
+- Resolve combos from left to right against one focus.
+- Clear most cards after one agent response.
+- Keep `INTERVIEW` and `GRILL` active until they finish or you stop them.
+- Create briefs and plans when you play their cards.
+
 ## Add control when you need it
 
-The six core cards are enough to begin. The rest of the deck adds control
-without making it part of every exchange.
+The six core cards cover the main thinking loop. Eight more cards let you choose
+the focus, recommend actions, create an artifact, or change its presentation.
 
-### Ask the deck
-
-`/think-help` explains a card or recommends normal conversation, one card, or a
-combo:
+`/think-help` explains the deck and gives exact commands without playing a
+card:
 
 ```text
 /think-help
@@ -147,30 +183,9 @@ combo:
 /think-help "I need to choose a direction"
 ```
 
-Help gives exact commands but never plays them. `/think-next` recommends
-actions inside your subject.
-
-### Recover a long conversation
-
-Think It Through maps available context as:
-
-```text
-Conversation
-└── Topics
-    └── Axes
-        ├── ideas and assumptions
-        ├── proposals and decisions
-        ├── tensions and contradictions
-        └── open questions
-```
-
-`/think-recap` rebuilds that map from the context available to the agent and
-gives topics and axes reusable labels. It does not claim hidden or persistent
-memory.
-
-### Combine cards
-
-Cards compose from left to right:
+Focus cards target a conversation, topic, or axis. Output cards create a brief
+or plan. Modifiers can add a diagram or reasoning map to the same result. For
+example:
 
 ```text
 /think-recap + /think-with-diagrams
@@ -180,73 +195,31 @@ Cards compose from left to right:
 🎯 Conversation → 🗺️ RECAP + 📊 DIAGRAMS
 ```
 
-Use a focus card when a default is too broad:
+`/think-to-plan` turns an accepted or provisional direction into a plan for
+review. It does not authorize execution.
 
-```text
-/think-on-topic "Positioning"
-+ /think-distill
-+ /think-propose
-+ /think-to-brief
-+ /think-with-diagrams
-```
+## Under the deck
 
-```text
-🎯 Topic: Positioning → 🧪 DISTILL → 🧭 PROPOSE → 📄 BRIEF + 📊 DIAGRAMS
-```
+Think It Through controls the requested shape of an agent response. Your
+methods, project rules, and tools still govern the substance and the available
+actions.
 
-HACP resolves `FOCUS? → MOVE* → OUTPUT? → MODIFIER*`. Moves pass results from
-left to right. One output may create an artifact. Modifiers change its
-representation, not its substance.
+The
+[Human-Agent Card Protocol](https://github.com/thevzion/human-agent-card-protocol)
+defines the shared rules beneath the deck: focus, composition, duration,
+clearing, and visible resolution.
 
-### Preserve or plan on demand
+| Layer | Owns |
+| --- | --- |
+| Think It Through | purpose, mental model, cards, and defaults |
+| HACP | card types, order, duration, and clearing |
+| Methods and project rules | reasoning and quality constraints |
+| Providers and tools | instruction loading, context, and actions |
 
-`/think-to-brief` creates a portable Markdown checkpoint. `/think-to-plan`
-turns an accepted or explicitly provisional direction into a plan for review.
-Neither command runs silently, and a plan does not authorize execution.
+<details>
+<summary><strong>Complete card reference</strong></summary>
 
-## Works with your methods and tools
-
-Think It Through controls the requested shape of an agent response. It does not
-replace the method, constraints, or tools that govern the work.
-
-| Layer | Examples | What it contributes |
-| --- | --- | --- |
-| Conversation deck | Think It Through | The explicit operation for the next response |
-| Interaction protocol | HACP | Composition, focus, duration, and clearing rules |
-| Methods and constraints | Superpowers, Ponytail, Stop Slop | Process and quality rules |
-| Capabilities | Skills, MCP servers, CLIs | Actions and access to external systems |
-
-These layers can be used together because they answer different questions. The
-examples name independent projects and tool categories; they do not imply a
-native integration, affiliation, or endorsement.
-
-## How cards play
-
-A **human turn** supplies a thought and zero or more cards. An **agent turn**
-resolves their effects. Together they form an **exchange**.
-
-```mermaid
-flowchart LR
-    H["Human turn<br/>thought + zero or more cards"] --> C{"Cards played?"}
-    C -->|No| N["Normal agent response"]
-    C -->|Yes| A["Resolve explicit effects"]
-    N --> R["Next human thought"]
-    A --> R
-    R --> H
-```
-
-Most cards last one agent turn. `INTERVIEW` and `GRILL` span exchanges. Focus
-cards last one combo, outputs last through creation, and modifiers affect one
-representation.
-
-Every play stays explicit. A cleared card never repeats from cadence alone, and
-no move card plays silently.
-
-## Card reference
-
-[🧩 `/think-it-through`](plugins/think-it-through/skills/think-it-through/SKILL.md)
-initializes the shared deck model.
-[🧩 `/think-help`](plugins/think-it-through/skills/think-help/SKILL.md) explains
+`/think-it-through` initializes the shared deck model. `/think-help` explains
 the deck. Neither is a card.
 
 ### Move cards
@@ -283,10 +256,11 @@ the deck. Neither is a card.
 | [📊 Diagrams](plugins/think-it-through/skills/think-with-diagrams/SKILL.md) | Smallest useful visual | Final or latest useful result |
 | [🧠 Reasoning map](plugins/think-it-through/skills/think-with-reasoning-map/SKILL.md) | Supported reasoning structure | Final reasoning or current decision |
 
+</details>
+
 ## Build your own card
 
-[HACP](https://github.com/thevzion/human-agent-card-protocol) separates shared
-interaction rules from a deck. Start with an instruction you repeat:
+Start with an instruction you repeat:
 
 ```text
 repeated instruction
@@ -296,19 +270,16 @@ repeated instruction
 → keep, revise, merge, or remove
 ```
 
-The card contract is:
+A card contract records:
 
 ```text
 Use when → Default focus → Effect → Result
 → Duration → Limits → Flow → Format
 ```
 
-A different deck can define another purpose, mental model, and card set on the
-same interaction rules.
-
-Which instruction do you repeat often enough to turn into a card?
-[Open an issue](https://github.com/thevzion/think-it-through/issues) to share
-one, challenge a default, flag an overlap, or suggest a missing effect.
+A different deck can use the same interaction rules for another purpose and
+mental model. Share an instruction you repeat in a
+[GitHub issue](https://github.com/thevzion/think-it-through/issues).
 
 ## Origin and license
 
