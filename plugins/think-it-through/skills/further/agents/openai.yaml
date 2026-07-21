@@ -4,3 +4,5 @@ interface:
   icon_small: "assets/icon.png"
   brand_color: "#9B6AD6"
   default_prompt: "Use $further to push this idea one grounded leap further."
+policy:
+  allow_implicit_invocation: false

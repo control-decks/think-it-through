@@ -1,17 +1,28 @@
 ---
 name: to-brief
 description: Turn the full available conversation or a result from the same combo into a neutral, reusable Thinking Brief. Use only when the user invokes to-brief or asks to preserve the thinking; never create or overwrite a durable artifact silently.
+disable-model-invocation: true
 ---
 
 # 📄 Think To Brief
 
-**Use when:** The user wants to preserve thinking for reuse in this session, another session, or another tool.
-**Default binding:** The full available conversation, the same Binding as `/on-conversation` when used alone. A result supplied by a combo takes priority.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Use the canonical map or supplied result to verify coverage, infer a useful document form and audience, then use the subject's vocabulary and the audience's expected structure.
-**Result:** A portable Markdown checkpoint that covers the relevant material, with purpose, overall synthesis, decisions, tensions, open questions, and where to resume when useful.
-**Duration:** One output flow, including any required confirmation.
-**Limits:** Keep the trace, HACP, cards, combos, and deck vocabulary outside the artifact body unless they are the subject or the user requests them. Do not run an implicit recap, invent conclusions, claim cross-session memory, synchronize later, or overwrite without permission.
+**ID:** `think-it-through/to-brief`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `artifact`\
+**Traits:** `read-only`, `artifact`\
+**Default Binding:** Result supplied by the combo, otherwise full available
+conversation\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Produces:** `think-it-through/thinking-brief`\
+**Duration:** `until-confirmed`
+
+**Effect:** Verify coverage, infer a useful document form and audience, and
+produce a portable Markdown checkpoint using the subject's vocabulary.
+
+**Limits:** Keep traces and deck vocabulary outside the artifact unless they
+are the subject or requested. Do not run a hidden recap, invent conclusions,
+claim cross-session memory, synchronize later, or overwrite without permission.
 
 ## Flow
 

@@ -1,29 +1,28 @@
 ---
 name: recap
 description: Recover the full shape of the available conversation as a structured map with reusable topic and axis labels, followed by an overall synthesis. Use only when the user invokes recap or asks for a recap or synthesis; never insert an unsolicited checkpoint.
+disable-model-invocation: true
 ---
 
 # 🗺️ Think Recap
 
-**Use when:** The discussion has lost its overall shape or needs a checkpoint.
-**Default binding:** The full available conversation, the same Binding as `/on-conversation`.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Reconstruct topics and axes with concise human labels, reuse supported labels, classify their contents and states, then synthesize relationships across them.
-**Result:** A navigable map whose topic and axis labels can be reused by binding cards, followed by a coherent account of where the thinking stands.
-**Duration:** One agent turn. Play it again at useful checkpoints.
-**Limits:** Preserve uncertainty and disagreement. Do not suggest another command, choose a direction, decide, plan, create technical identifiers, persist state, or create a file.
+**ID:** `think-it-through/recap`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Full available conversation\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Produces:** `think-it-through/conversation-map`\
+**Duration:** `once`
 
-## Flow
+**Effect:** Reconstruct `Conversation → Topics → Axes` with concise reusable
+human labels, classify their contents and states, then synthesize relationships
+across them.
 
-```mermaid
-flowchart LR
-    A["Selected conversation context"] --> B["Recover topics and axes"]
-    B --> C["Name or reuse human labels"]
-    C --> D["Classify content and states"]
-    D --> E["Surface tensions and dependencies"]
-    E --> F["Build navigable map"]
-    F --> G["Write overall synthesis"]
-```
+**Limits:** Preserve uncertainty and disagreement. Do not suggest another
+command, choose, decide, plan, create technical identifiers, persist state, or
+create a file.
 
 ## Format
 

@@ -1,17 +1,27 @@
 ---
 name: with-diagrams
 description: Add the smallest useful diagram to a result from the same combo or the latest useful result while preserving its substance. Use only when the user invokes with-diagrams or asks for a diagrammatic representation; never add decorative visuals silently.
+disable-model-invocation: true
 ---
 
 # 📊 Think With Diagrams
 
-**Use when:** Existing relationships would be easier to understand as a visual structure.
-**Default binding:** The final result from the same combo, otherwise the latest substantive result or Binding.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Identify the relationship worth compressing, choose the smallest useful form, and represent it without changing the substance.
-**Result:** A flow, tree, timeline, matrix, table, or Mermaid diagram tied to the existing content.
-**Duration:** One final representation. It does not affect later responses.
-**Limits:** Do not decorate, duplicate prose, remove qualifications, or add conclusions, decisions, or certainty. Say briefly when a diagram would not help.
+**ID:** `think-it-through/with-diagrams`\
+**HACP:** `0.4`\
+**Kind:** `presentation`\
+**Mode:** `render`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Current Working Object, then latest substantive result or
+Binding\
+**Accepts:** `hacp/result`\
+**Produces:** `hacp/presentation`\
+**Duration:** `once`
+
+**Effect:** Identify the relationship worth compressing, choose the smallest
+useful form, and render it without advancing or changing the semantic object.
+
+**Limits:** Do not decorate, duplicate prose, remove qualifications, or add
+conclusions, decisions, or certainty. Say briefly when a diagram would not help.
 
 ## Flow
 

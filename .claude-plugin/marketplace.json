@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "think-it-through",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "A thinking deck built on the Human-Agent Control Protocol, with 16 composable cards.",
   "owner": {
     "name": "Control Decks"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "think-it-through",
-      "version": "0.12.0",
+      "version": "0.13.0",
       "description": "Develop and explain complex ideas with 16 composable cards.",
       "author": {
         "name": "thevzion"

@@ -1,17 +1,26 @@
 ---
 name: discuss
 description: Explore and deepen the thought currently being expressed as an active, neutral thinking partner without forcing a conclusion or changing effects. Use only when the user invokes discuss or asks to reason through something together; never redirect silently.
+disable-model-invocation: true
 ---
 
 # 💬 Think Discuss
 
-**Use when:** The user wants a thinking partner without a forced outcome.
-**Default binding:** The thought currently being expressed.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Develop its implications, connections, tensions, language, or examples.
-**Result:** A direct response that develops the thought while preserving useful ambiguity.
-**Duration:** One agent turn. Play it again whenever exploration should continue.
-**Limits:** Ask only when a question unlocks the discussion. Do not become an interview, grill, recap, proposal, plan, or artifact.
+**ID:** `think-it-through/discuss`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Current thought\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Produces:** `think-it-through/developed-thought`\
+**Duration:** `once`
+
+**Effect:** Develop the bound thought's implications, connections, tensions,
+language, or examples while preserving useful ambiguity.
+
+**Limits:** Ask only when a question unlocks discussion. Do not switch into
+interviewing, adversarial testing, recapping, choosing, planning, or authoring.
 
 ## Flow
 

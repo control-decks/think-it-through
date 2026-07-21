@@ -1,6 +1,7 @@
 ---
 name: help
 description: Explain the Think It Through deck, clarify any card or deck concept, or recommend normal conversation, one card, or a combo for the user's current situation or free-form goal. Use only when the user invokes help or explicitly asks how to use or continue with Think It Through. Never play a recommended card or suggest domain actions.
+disable-model-invocation: true
 ---
 
 # 🧩 Think Help
@@ -21,7 +22,7 @@ Recommend `Continue normally` when no card would improve the next agent turn. Ne
 
 ```text
 Starter hand
-distill · discuss · explain
+distill · discuss · further
 grill · recap · propose
 
 Operation cards
@@ -49,7 +50,12 @@ with-diagrams      → smallest useful visual
 with-reasoning-map → supported reasoning structure
 ```
 
-Think It Through uses `Conversation → Topics → Axes` internally. A binding card selects the material for the combo. Every adjacent card receives the current HACP Working Object, including across decks; the internal mental model never crosses that boundary. Operations transform the object and presentation cards change only its visible representation. `/think-it-through` initializes the deck explicitly but is not required before a card.
+Think It Through uses `Conversation → Topics → Axes` only in the cards that
+need that model. A binding card selects material for the combo. Adjacent cards
+receive the current HACP Working Object, including across decks; the mental
+model never crosses that boundary. Operations transform the object and
+presentation cards render it without advancing it. A compatible HACP session
+adapter must already be active; there is no deck initializer.
 
 ## Format
 

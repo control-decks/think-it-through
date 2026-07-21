@@ -1,17 +1,27 @@
 ---
 name: next
 description: Recommend the next one to three concrete actions with the highest leverage for the latest actionable result or current Binding. Use only when the user invokes next or asks what to do next; never redirect or act silently.
+disable-model-invocation: true
 ---
 
 # ⚡ Think Next
 
-**Use when:** The user has enough clarity to continue but needs the highest-leverage next step.
-**Default binding:** The latest actionable result, otherwise the current Binding.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Recover the current stage and dependencies, identify the bottleneck, then rank concrete actions by leverage.
-**Result:** One to three actions with expected outcomes.
-**Duration:** One agent turn.
-**Limits:** Distinguish conversational and external actions. Do not expand into a full plan or execute anything.
+**ID:** `think-it-through/next`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Latest actionable result, otherwise current Binding\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Requires:** `hacp/actionable-result`\
+**Produces:** `think-it-through/next-actions`\
+**Duration:** `once`
+
+**Effect:** Recover the bound stage and dependencies, identify its bottleneck,
+and rank one to three concrete actions by leverage with expected outcomes.
+
+**Limits:** Distinguish conversational and external actions. Do not expand into
+a full plan or execute anything.
 
 ## Flow
 
