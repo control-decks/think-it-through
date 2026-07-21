@@ -2,10 +2,11 @@
 
 **Stop rewriting the same instructions while thinking with AI. Play a card.**
 
-Think It Through is an open-source deck of conversation cards for working
-through ideas with an agent. Keep writing as usual, then play a card when you
-want the next response to clarify, explore, question, challenge, recover, or
-direct your thinking.
+Think It Through is an open-source deck of conversation cards for developing
+ideas with an agent. Keep writing as usual, then play a card when you want the
+next response to clarify, explore, question, challenge, recover, or
+direct your thinking. Each card makes the next move explicit, reducing vague
+responses and steering work across active sessions.
 
 ![Two collaborators prepare to play the Distill card against a hydra of tangled instructions](assets/think-it-through-hero.jpg)
 
@@ -69,8 +70,9 @@ way of working while a protocol stays neutral about the method.
 
 **Response**
 
-Choose which layer people adopt first. Let the other two support it without
-forcing them into the same product.
+The unresolved question is which layer people would adopt first: the method,
+the interface, or the protocol. The other two may support it without belonging
+to the same initial product boundary.
 
 `DISTILL` separated the claims and preserved the unresolved product boundary.
 The next message can continue from clearer material.
@@ -108,13 +110,25 @@ captures one of them.
 | --- | --- | --- |
 | structure | [🧪 `DISTILL`](plugins/think-it-through/skills/think-distill/SKILL.md) | separate and clarify the thought |
 | room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/think-discuss/SKILL.md) | explore without forcing a conclusion |
-| missing information | [🔎 `INTERVIEW`](plugins/think-it-through/skills/think-interview/SKILL.md) | ask one focused question at a time |
+| an explanation | [💡 `EXPLAIN`](plugins/think-it-through/skills/think-explain/SKILL.md) | explain without changing the claims or choosing a direction |
 | pressure | [🔥 `GRILL`](plugins/think-it-through/skills/think-grill/SKILL.md) | test one weak branch per exchange |
 | orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/think-recap/SKILL.md) | recover a map and synthesis |
 | a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/think-propose/SKILL.md) | offer one choice with its tradeoff and risk |
 
 Repeat a card, switch cards, or return to normal conversation as the thought
 changes.
+
+You can play a card without writing another prompt. If a long session has lost
+its shape, send:
+
+```text
+/think-recap
+```
+
+The card uses the conversation as its default Binding. Reusing these
+moves across active sessions cuts prompt writing and context switching. You
+still verify the agent's work; cards control the next move, not its correctness
+or cross-session memory.
 
 ## Combine two cards
 
@@ -171,9 +185,9 @@ build shared understanding.
 
 ## Add control when you need it
 
-The six core cards cover the main thinking loop. Nine more cards let you choose
-the Binding, recommend actions, explain a result, create an artifact, or change
-its presentation.
+The six-card starter hand covers the main thinking loop. Ten advanced cards
+let you choose the Binding, gather missing information, recommend actions,
+extend an idea, create an artifact, or change its presentation.
 
 `/think-help` explains the deck and gives exact commands without playing a
 card:
@@ -185,7 +199,7 @@ card:
 ```
 
 Binding cards target a conversation, topic, or axis. Output cards create a brief
-or plan. Presentation cards can add a diagram or reasoning map to the same result. For
+or plan. Presentation cards explain or render the current Working Object. For
 example:
 
 ```text
@@ -194,6 +208,21 @@ example:
 
 ```text
 🎯 Conversation → 🗺️ RECAP + 📊 DIAGRAMS
+```
+
+```text
+/think-explain + /think-with-diagrams
+```
+
+`EXPLAIN` preserves the current result's claims and caveats. `DIAGRAMS` then
+adds the smallest useful visual.
+
+`/think-further` pushes the current object one grounded creative leap beyond
+what it already says. It marks the extrapolation instead of presenting it as
+established fact, and it does not choose a direction:
+
+```text
+/think-distill + /think-further
 ```
 
 `/think-to-plan` turns an accepted or provisional direction into a plan for
@@ -217,7 +246,7 @@ methods, project rules, and tools still govern the substance and the available
 actions.
 
 The
-[Human-Agent Control Protocol](https://github.com/control-decks/human-agent-card-protocol)
+[Human-Agent Control Protocol](https://github.com/control-decks/human-agent-control-protocol)
 defines the shared rules beneath the deck: Binding, Working Object transfer,
 control state, duration, and visible resolution.
 
@@ -245,6 +274,7 @@ the deck. Neither is a card.
 | [🗺️ Recap](plugins/think-it-through/skills/think-recap/SKILL.md) | Orientation is lost | Available conversation | Map and synthesis | One agent turn |
 | [🧭 Propose](plugins/think-it-through/skills/think-propose/SKILL.md) | An open question needs direction | Current open decision | One proposal | One agent turn |
 | [⚡ Next](plugins/think-it-through/skills/think-next/SKILL.md) | Action should follow | Latest actionable result | One to three actions | One agent turn |
+| [🚀 Further](plugins/think-it-through/skills/think-further/SKILL.md) | A useful idea should be pushed beyond its current edge | Current Working Object | One grounded creative extension | One agent turn |
 
 ### Binding cards
 

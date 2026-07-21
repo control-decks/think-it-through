@@ -20,7 +20,11 @@ Recommend `Continue normally` when no card would improve the next agent turn. Ne
 ## Deck guide
 
 ```text
-Move cards
+Starter hand
+think-distill · think-discuss · think-explain
+think-grill · think-recap · think-propose
+
+Operation cards
 think-distill  latest human message       → clear thoughts
 think-discuss  current thought            → developed thought
 think-interview smallest unclear subject  → shared understanding
@@ -28,6 +32,7 @@ think-grill    current testable idea       → verdict and risks
 think-recap    available conversation     → map and synthesis
 think-propose  current open decision       → one direction
 think-next     latest actionable result    → one to three actions
+think-further  current Working Object      → one grounded creative extension
 
 Binding cards
 think-on-conversation → all available topics and axes
@@ -37,9 +42,9 @@ think-on-axis         → one named or current axis
 Output cards
 think-to-brief → portable thinking checkpoint
 think-to-plan  → execution plan for review
-think-explain  → concise explanation of any HACP result
 
 Presentation cards
+think-explain            → concise explanation of any HACP result
 think-with-diagrams      → smallest useful visual
 think-with-reasoning-map → supported reasoning structure
 ```

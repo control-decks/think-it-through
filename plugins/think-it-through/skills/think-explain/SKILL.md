@@ -1,6 +1,6 @@
 ---
 name: think-explain
-description: Explain the current HACP Working Object at the user's apparent level with the minimum detail needed for understanding. Use when the user invokes think-explain, asks for an explanation, or passes a result from another deck into EXPLAIN; never add an explanation silently.
+description: Explain the current HACP Working Object at the user's requested or apparent level with the minimum detail needed for understanding while preserving its claims and caveats. Use when the user invokes think-explain, asks for an explanation, or passes a result from another deck into EXPLAIN; never add an explanation silently.
 ---
 
 # 💡 Think Explain
@@ -11,13 +11,14 @@ to understand.
 substantive result or clearly named subject.
 **Accepts:** Human-supplied content or any `success` or `blocked` HACP result.
 Defer on `pending` unless the user asks to explain the proposed action.
-**Effect:** Identify the essential mechanism, choose language at the user's
-apparent level, and explain only the details needed to understand the object.
-**Result:** A concise explanation that preserves uncertainty and the source
-object's meaning.
+**Effect:** Explain the smallest unclear point at the user's requested or
+apparent level with only the details needed to understand it.
+**Result:** A concise explanation that preserves the source object's claims,
+caveats, and uncertainty.
 **Duration:** One agent turn.
-**Limits:** Do not invent evidence, repeat the complete source, add a tutorial
-about HACP, or use more than one example unless the user asks.
+**Limits:** Do not invent evidence, change claims, advise, choose a direction,
+repeat the complete source, add a tutorial about HACP, or use more than one
+example unless the user asks.
 
 ## Format
 

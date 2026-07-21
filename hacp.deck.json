@@ -134,13 +134,25 @@
       "relations": {}
     },
     {
+      "id": "think-it-through/further",
+      "command": "think-further",
+      "kind": "operation",
+      "mode": "transform",
+      "traits": ["read-only", "semantic", "creative-extension"],
+      "defaultBinding": "current-working-object",
+      "accepts": ["hacp/content", "hacp/result"],
+      "produces": "think-it-through/extended-thought",
+      "duration": "once",
+      "relations": {}
+    },
+    {
       "id": "think-it-through/explain",
       "command": "think-explain",
       "kind": "presentation",
       "mode": "render",
       "traits": ["read-only", "semantic", "cross-deck"],
       "defaultBinding": "current-working-object",
-      "accepts": ["hacp/content", "hacp/result", "hacp/blocked-result"],
+      "accepts": ["hacp/content", "hacp/result"],
       "produces": "think-it-through/explanation",
       "duration": "once",
       "relations": {

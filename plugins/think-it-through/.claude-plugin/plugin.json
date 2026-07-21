@@ -1,7 +1,7 @@
 {
   "name": "think-it-through",
   "version": "0.11.0",
-  "description": "A thinking deck built on the Human-Agent Control Protocol, with 15 cards that compose across agent workflows.",
+  "description": "A thinking deck built on the Human-Agent Control Protocol, with 16 cards that compose across agent workflows.",
   "author": {
     "name": "thevzion",
     "url": "https://github.com/thevzion"

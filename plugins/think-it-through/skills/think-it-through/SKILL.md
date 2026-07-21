@@ -61,6 +61,9 @@ The deck never grants authority to mutate, browse, persist, or contact anyone.
 Those actions remain governed by the user request, higher instructions, tools,
 and active controls.
 
+`think-further` extends the current object by one grounded creative leap. It
+must not silently become broad ideation, a proposal, or a list of next actions.
+
 ## Duration
 
 One-shot cards clear after one agent turn. Interview and Grill stay active

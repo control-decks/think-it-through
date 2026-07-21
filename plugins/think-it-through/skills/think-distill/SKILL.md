@@ -11,7 +11,8 @@ description: Separate and clarify one or more fragmented, implicit, or hard-to-w
 **Effect:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
 **Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
 **Duration:** One agent turn. Play it again on successive messages when useful.
-**Limits:** Do not merge distinct thoughts, invent connections, place advice inside the distillation, or replace clarification with another effect.
+**Limits:** Do not merge distinct thoughts, invent connections, add advice,
+choose a direction, or replace clarification with another effect.
 
 ## Flow
 
@@ -34,6 +35,8 @@ Begin the combo trace with `> 🎯 **<binding>** → 🧪 **DISTILL**`, then use
 
 1. `Distilled` with one formulation or a short list.
 2. `Connections` only when the context supports them.
-3. `Response` when used alone.
+3. `Response` when used alone, stating the remaining question or asking one
+   necessary clarification.
 
-Keep implications and advice in `Response`. Add later move cards with `→`; show the trace once for the complete combo.
+Keep advice and direction out of `Response`. Add later operation cards with
+`→`; show the trace once for the complete combo.
