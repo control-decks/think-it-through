@@ -1,4 +1,6 @@
 interface:
   display_name: "Think It Through · Help"
   short_description: "Choose the right thinking card or combo"
+  icon_small: "assets/icon.png"
+  brand_color: "#9B6AD6"
   default_prompt: "Use $help to choose a Think It Through card."

@@ -39,6 +39,9 @@
     "developerName": "Control Decks",
     "category": "Productivity",
     "capabilities": [],
+    "brandColor": "#9B6AD6",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
     "defaultPrompt": [
       "$think-it-through:help Help me choose how to continue this conversation.",
       "$think-it-through:recap Recover the full shape of this conversation.",
