@@ -1,8 +1,8 @@
 {
-  "hacp": "0.3",
+  "hacp": "0.4",
   "deck": {
     "id": "think-it-through",
-    "version": "0.12.0",
+    "version": "0.13.0",
     "publisher": "Control Decks"
   },
   "cards": [
@@ -64,9 +64,7 @@
       "accepts": ["hacp/content", "hacp/result"],
       "produces": "think-it-through/clarified-thought",
       "duration": "once",
-      "relations": {
-        "references": ["think-it-through/propose"]
-      }
+      "relations": {}
     },
     {
       "id": "think-it-through/interview",
@@ -88,6 +86,7 @@
       "traits": ["read-only", "semantic", "multi-exchange"],
       "defaultBinding": "current-testable-idea",
       "accepts": ["hacp/content", "hacp/result"],
+      "requires": ["hacp/testable-object"],
       "produces": "think-it-through/verdict",
       "duration": "until-complete",
       "relations": {}
@@ -112,14 +111,10 @@
       "traits": ["read-only", "semantic"],
       "defaultBinding": "current-open-decision",
       "accepts": ["hacp/content", "hacp/result"],
+      "requires": ["hacp/open-decision"],
       "produces": "think-it-through/proposal",
       "duration": "once",
-      "relations": {
-        "references": [
-          "think-it-through/to-plan",
-          "reality-check/check-assumptions"
-        ]
-      }
+      "relations": {}
     },
     {
       "id": "think-it-through/next",
@@ -129,6 +124,7 @@
       "traits": ["read-only", "semantic"],
       "defaultBinding": "latest-actionable-result",
       "accepts": ["hacp/content", "hacp/result"],
+      "requires": ["hacp/actionable-result"],
       "produces": "think-it-through/next-actions",
       "duration": "once",
       "relations": {}
@@ -141,6 +137,7 @@
       "traits": ["read-only", "semantic", "creative-extension"],
       "defaultBinding": "current-working-object",
       "accepts": ["hacp/content", "hacp/result"],
+      "requires": ["hacp/extendable-thought"],
       "produces": "think-it-through/extended-thought",
       "duration": "once",
       "relations": {}
@@ -150,14 +147,12 @@
       "command": "explain",
       "kind": "presentation",
       "mode": "render",
-      "traits": ["read-only", "semantic", "cross-deck"],
+      "traits": ["read-only", "semantic"],
       "defaultBinding": "current-working-object",
       "accepts": ["hacp/content", "hacp/result"],
       "produces": "think-it-through/explanation",
       "duration": "once",
-      "relations": {
-        "references": ["work-this-way/implement"]
-      }
+      "relations": {}
     },
     {
       "id": "think-it-through/to-brief",
@@ -179,14 +174,13 @@
       "traits": ["read-only", "artifact"],
       "defaultBinding": "current-executable-direction",
       "accepts": ["hacp/content", "hacp/result"],
+      "requires": [
+        "hacp/executable-direction",
+        "hacp/user-accepted-or-provisional"
+      ],
       "produces": "think-it-through/execution-plan",
       "duration": "until-confirmed",
-      "relations": {
-        "references": [
-          "reality-check/check-targets",
-          "work-this-way/implement"
-        ]
-      }
+      "relations": {}
     },
     {
       "id": "think-it-through/with-diagrams",

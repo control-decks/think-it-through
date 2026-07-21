@@ -4,3 +4,5 @@ interface:
   icon_small: "assets/icon.png"
   brand_color: "#9B6AD6"
   default_prompt: "Use $discuss to explore this thought without forcing a conclusion."
+policy:
+  allow_implicit_invocation: false

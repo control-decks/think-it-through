@@ -4,3 +4,5 @@ interface:
   icon_small: "assets/icon.png"
   brand_color: "#9B6AD6"
   default_prompt: "Use $on-conversation to apply this combo to the available conversation."
+policy:
+  allow_implicit_invocation: false

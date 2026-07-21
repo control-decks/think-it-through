@@ -1,24 +1,29 @@
 ---
 name: explain
 description: Explain the current HACP Working Object at the user's requested or apparent level with the minimum detail needed for understanding while preserving its claims and caveats. Use when the user invokes explain, asks for an explanation, or passes a result from another deck into EXPLAIN; never add an explanation silently.
+disable-model-invocation: true
 ---
 
 # 💡 Think Explain
 
-**Use when:** A concept, result, action, or blocked outcome needs to become easy
-to understand.
-**Default binding:** The current Working Object, otherwise the latest
-substantive result or clearly named subject.
-**Accepts:** Human-supplied content or any `success` or `blocked` HACP result.
-Defer on `pending` unless the user asks to explain the proposed action.
-**Effect:** Explain the smallest unclear point at the user's requested or
-apparent level with only the details needed to understand it.
-**Result:** A concise explanation that preserves the source object's claims,
-caveats, and uncertainty.
-**Duration:** One agent turn.
+**ID:** `think-it-through/explain`\
+**HACP:** `0.4`\
+**Kind:** `presentation`\
+**Mode:** `render`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Current Working Object, latest substantive result, or
+clearly named subject\
+**Accepts:** `hacp/content`, `hacp/result`; accept `success` and `blocked`, and
+defer `pending` unless the human asks to explain the proposed action\
+**Produces:** `think-it-through/explanation`\
+**Duration:** `once`
+
+**Effect:** Explain the smallest unclear point at the human's requested or
+apparent level while preserving the object's claims, caveats, and uncertainty.
+
 **Limits:** Do not invent evidence, change claims, advise, choose a direction,
-repeat the complete source, add a tutorial about HACP, or use more than one
-example unless the user asks.
+repeat the complete source, explain HACP automatically, or use more than one
+example unless requested.
 
 ## Format
 

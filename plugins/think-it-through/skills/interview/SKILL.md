@@ -1,17 +1,26 @@
 ---
 name: interview
 description: Build shared understanding through a multi-turn interview about the smallest current subject with important missing information, asking one focused question at a time. Use only when the user invokes interview or asks to be interviewed for understanding; never start it silently.
+disable-model-invocation: true
 ---
 
 # 🔎 Think Interview
 
-**Use when:** Important missing information prevents shared understanding.
-**Default binding:** The smallest current subject with important missing information.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Resolve discoverable facts, ask one focused question at a time, and adapt each question to the preceding answer.
-**Result:** Enough shared understanding to continue without guessing.
-**Duration:** Multiple exchanges. Keep the selected Binding until understanding is sufficient or the user stops, redirects, or plays another card.
-**Limits:** Stay neutral. Do not challenge, recommend, or turn the interview into a grill.
+**ID:** `think-it-through/interview`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`, `multi-exchange`\
+**Default Binding:** Smallest current subject with important missing information\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Produces:** `think-it-through/shared-understanding`\
+**Duration:** `until-complete`
+
+**Effect:** Resolve discoverable facts, ask one focused question at a time, and
+adapt each question to the preceding answer until understanding is sufficient.
+
+**Limits:** Keep the selected Binding until completion, stop, or redirection.
+Stay neutral; do not challenge, recommend, or become adversarial testing.
 
 ## Flow
 

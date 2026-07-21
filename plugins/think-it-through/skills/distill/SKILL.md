@@ -1,18 +1,27 @@
 ---
 name: distill
 description: Separate and clarify one or more fragmented, implicit, or hard-to-word thoughts, expose only supported relationships, then respond or pass the result forward. Use only when the user invokes distill or asks for clarification before answering; never activate it silently.
+disable-model-invocation: true
 ---
 
 # 🧪 Think Distill
 
-**Use when:** Ideas arrive faster than the user can structure them.
-**Default binding:** The latest human message, interpreted in its relevant context.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Separate every material thought, clarify each one, then expose only convergence, tension, or dependency supported by the context.
-**Result:** Clear thoughts that preserve the user's meaning, ambiguity, and distinctions.
-**Duration:** One agent turn. Play it again on successive messages when useful.
-**Limits:** Do not merge distinct thoughts, invent connections, add advice,
-choose a direction, or replace clarification with another effect.
+**ID:** `think-it-through/distill`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Latest human message in relevant context\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Produces:** `think-it-through/clarified-thought`\
+**Duration:** `once`
+
+**Effect:** Separate every material thought, clarify each one, and expose only
+convergence, tension, or dependency supported by the bound context.
+
+**Limits:** Preserve meaning, ambiguity, and distinctions. Do not invent
+connections, add advice, choose a direction, or replace clarification with
+another effect.
 
 ## Flow
 

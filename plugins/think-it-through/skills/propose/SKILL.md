@@ -1,29 +1,27 @@
 ---
 name: propose
 description: Put forward one strong direction for the current open question or decision, with its decisive tradeoff and main risk. Use only when the user invokes propose or asks for one proposal or recommendation; never propose a new direction silently.
+disable-model-invocation: true
 ---
 
 # 🧭 Think Propose
 
-**Use when:** Exploration has produced an open question that needs direction.
-**Default binding:** The current open question or decision.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Evaluate viable directions, choose one, and expose why it fits, what it gives up, and where it can fail.
-**Result:** One strong proposal that the user can accept, reject, or refine.
-**Duration:** One agent turn.
-**Limits:** Do not hide the decisive tradeoff, offer a soft menu, make the final decision, or continue into planning.
+**ID:** `think-it-through/propose`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`\
+**Default Binding:** Current open question or decision\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Requires:** `hacp/open-decision`\
+**Produces:** `think-it-through/proposal`\
+**Duration:** `once`
 
-## Flow
+**Effect:** Evaluate viable directions, choose one, and expose why it fits,
+what it gives up, and where it can fail.
 
-```mermaid
-flowchart LR
-    A["Open question"] --> B["Recover intent and constraints"]
-    B --> C["Evaluate viable directions"]
-    C --> D["Choose strongest direction"]
-    D --> E["Explain fit and tradeoff"]
-    E --> F["Expose main risk"]
-    F --> G["Return the choice to the user"]
-```
+**Limits:** Do not hide the decisive tradeoff, offer a soft menu, make the
+human's final decision, or continue into planning.
 
 If the user requests a lateral direction, choose one that changes the structure rather than the wording.
 

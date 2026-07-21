@@ -1,17 +1,30 @@
 ---
 name: to-plan
 description: Turn an accepted or explicitly provisional executable direction into an ordered, verifiable Execution Plan using the agent's native planning surface when available. Use only when the user invokes to-plan or asks for an operational plan; never plan or execute silently.
+disable-model-invocation: true
 ---
 
 # 📋 Think To Plan
 
-**Use when:** An accepted or explicitly provisional direction needs operational structure.
-**Default binding:** The accepted or explicitly provisional executable direction.
-**Accepts:** A compatible HACP Working Object or the declared default material.
-**Effect:** Use the canonical map and source direction to recover constraints, success criteria, and applicable conventions, then produce an ordered, verifiable Execution Plan on the agent's native planning surface when available.
-**Result:** A proposed plan with objective, ordered work, dependencies, risks, verification, and completion criteria.
-**Duration:** One output flow, including user validation.
-**Limits:** Keep the trace, HACP, cards, combos, and deck vocabulary outside the artifact body unless they are the subject or the user requests them. Ask once when no executable direction exists. Do not fabricate details, treat the plan as approval, execute it, save it without an approved destination, or overwrite without permission.
+**ID:** `think-it-through/to-plan`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `artifact`\
+**Traits:** `read-only`, `artifact`\
+**Default Binding:** Current executable direction\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Requires:** `hacp/executable-direction`, `hacp/user-accepted-or-provisional`\
+**Produces:** `think-it-through/execution-plan`\
+**Duration:** `until-confirmed`
+
+**Effect:** Recover constraints, success criteria, and applicable conventions,
+then produce an ordered, verifiable Execution Plan on the native planning
+surface when available.
+
+**Limits:** Keep traces and deck vocabulary outside the plan unless they are
+the subject or requested. Ask once when no executable direction exists. Do not
+fabricate details, treat the plan as approval, execute, save without an
+approved destination, or overwrite without permission.
 
 ## Flow
 
@@ -34,4 +47,7 @@ State whether the source direction is accepted or provisional.
 
 Add `→ 📋 **PLAN**` after the final move in the combo trace, or begin with `> 🎯 **<binding>** → 📋 **PLAN**` when used alone. Add presentation cards with `+`.
 
-Keep that trace in the conversational envelope, outside the plan. Show status while awaiting direction, validation, destination, or overwrite permission. A plan never authorizes execution.
+Before any plan content, emit the one complete combo trace. Keep it in the
+conversational envelope, outside the plan, including when a native planning
+surface is available. Show status while awaiting direction, validation,
+destination, or overwrite permission. A plan never authorizes execution.

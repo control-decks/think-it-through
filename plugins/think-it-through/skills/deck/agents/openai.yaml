@@ -1,6 +1,0 @@
-interface:
-  display_name: "Think It Through"
-  short_description: "Initialize the shared thinking deck"
-  icon_small: "assets/icon.png"
-  brand_color: "#9B6AD6"
-  default_prompt: "Use $deck to initialize Think It Through."

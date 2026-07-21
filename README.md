@@ -1,19 +1,16 @@
 # Think It Through
 
-**Stop rewriting the same instructions while thinking with AI. Play a card.**
+**Your thoughts don’t need to arrive organized. Dump freely. Play a card when you need the thought to move.**
 
-Think It Through is an open-source deck of conversation cards for developing
-ideas with an agent. Keep writing as usual, then play a card when you want the
-next response to clarify, explore, question, challenge, recover, or
-direct your thinking. Each card makes the next move explicit, reducing vague
-responses and steering work across active sessions.
+Think It Through is an open-source deck for developing ideas with an agent.
+Write the thought as it arrives, even when fragmented or overloaded. Play a
+card to make the next move explicit without composing another prompt.
 
 ![Two collaborators prepare to play the Distill card against a hydra of tangled instructions](assets/think-it-through-hero.jpg)
 
-## The interruption
+## Dump first. Shape when needed.
 
-I use AI before an idea is ready. My messages often end up doing two jobs at
-once:
+I use AI before an idea is ready, so my messages start doing two jobs:
 
 ```text
 The product may be a method, an interface, and a protocol. Some of those ideas
@@ -23,8 +20,8 @@ Separate the ideas. Clarify each one without merging them. Preserve useful
 connections, and do not choose a direction yet.
 ```
 
-The first paragraph carries the thought. The second tells the agent how to
-respond. I kept rewriting that second paragraph as the subject changed.
+The first paragraph is the thought. The second is a response contract I kept
+rewriting.
 
 `DISTILL` turns it into a card:
 
@@ -37,9 +34,24 @@ overlap, but perhaps I am forcing them together.
 
 ![Two collaborators face a hydra made of tangled instructions](assets/think-it-through-card-loop.gif)
 
-The command carries the full response contract: separate the claims, clarify
-them, preserve supported relationships, and return useful material for the
-next exchange. Without a card, the agent gives its usual response.
+The card carries that contract. Without one, the agent responds as usual.
+
+The deck follows the way the work unfolds:
+
+```text
+dump freely
+→ DISTILL
+→ DISCUSS or FURTHER
+→ GRILL
+→ PROPOSE
+
+pause
+→ RECAP
+→ continue
+```
+
+Use only the steps the thought needs. Their names stay stable when you pause or
+resume.
 
 ## See `DISTILL` play
 
@@ -74,14 +86,18 @@ The unresolved question is which layer people would adopt first: the method,
 the interface, or the protocol. The other two may support it without belonging
 to the same initial product boundary.
 
-`DISTILL` separated the claims and preserved the unresolved product boundary.
-The next message can continue from clearer material.
+`DISTILL` clarified the material without choosing a direction.
 
 ## Install and play
+
+Install the HACP session adapter once, then the deck. Without a compatible
+adapter the commands may appear, but the session is not fully HACP-conforming.
 
 ### Codex
 
 ```bash
+codex plugin marketplace add control-decks/human-agent-control-protocol
+codex plugin add hacp@hacp
 codex plugin marketplace add control-decks/think-it-through
 codex plugin add think-it-through@think-it-through
 ```
@@ -92,6 +108,8 @@ Use `$think-it-through:help` or play
 ### Claude Code
 
 ```bash
+claude plugin marketplace add control-decks/human-agent-control-protocol --scope user
+claude plugin install hacp@hacp --scope user
 claude plugin marketplace add control-decks/think-it-through --scope user
 claude plugin install think-it-through@think-it-through --scope user
 ```
@@ -103,32 +121,30 @@ The examples below use the portable shorthand `/<card>`.
 
 ## Start with six cards
 
-I kept reaching for the same six moves while developing ideas. Each card
-captures one of them.
+Six cards cover the recurring thinking moves.
 
 | When your thinking needs... | Play | The agent will... |
 | --- | --- | --- |
 | structure | [🧪 `DISTILL`](plugins/think-it-through/skills/distill/SKILL.md) | separate and clarify the thought |
-| room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/discuss/SKILL.md) | explore without forcing a conclusion |
-| an explanation | [💡 `EXPLAIN`](plugins/think-it-through/skills/explain/SKILL.md) | explain without changing the claims or choosing a direction |
+| room to develop | [💬 `DISCUSS`](plugins/think-it-through/skills/discuss/SKILL.md) | develop implications already present |
+| one new edge | [🚀 `FURTHER`](plugins/think-it-through/skills/further/SKILL.md) | add one grounded extension, then stop |
 | pressure | [🔥 `GRILL`](plugins/think-it-through/skills/grill/SKILL.md) | test one weak branch per exchange |
 | orientation | [🗺️ `RECAP`](plugins/think-it-through/skills/recap/SKILL.md) | recover a map and synthesis |
 | a direction | [🧭 `PROPOSE`](plugins/think-it-through/skills/propose/SKILL.md) | offer one choice with its tradeoff and risk |
 
-Repeat a card, switch cards, or return to normal conversation as the thought
-changes.
+`DISCUSS` stays inside the thought and develops implications already present.
+`FURTHER` crosses its current edge once with a supported extension, marks the
+leap, then stops. Repeat, switch, or return to normal conversation as needed.
 
-You can play a card without writing another prompt. If a long session has lost
-its shape, send:
+If a long session has lost its shape, send:
 
 ```text
 /recap
 ```
 
-The card uses the conversation as its default Binding. Reusing these
-moves across active sessions cuts prompt writing and context switching. You
-still verify the agent's work; cards control the next move, not its correctness
-or cross-session memory.
+`RECAP` uses the conversation by default. The same vocabulary reduces prompt
+writing and recovery work across sessions. Cards control the requested move,
+not correctness or cross-session memory; you still verify the result.
 
 ## Combine two cards
 
@@ -145,9 +161,8 @@ The product may be a method, an interface, and a protocol.
 🎯 Latest message → 🧪 DISTILL → 🧭 PROPOSE
 ```
 
-The agent applies `DISTILL` first. `PROPOSE` receives the clarified result and
-selects one direction, with its decisive tradeoff and main risk. You can stop
-after clarification or ask for a direction in the same turn.
+`DISTILL` clarifies first. `PROPOSE` receives that result and selects one
+direction with its tradeoff and risk.
 
 ## Stay with a hard question
 
@@ -170,9 +185,8 @@ If the protocol vanished tomorrow, what value would the interface still
 deliver on its own?
 ```
 
-`GRILL` stays active while you answer each question. It ends with a verdict, or
-when you stop or redirect it. `INTERVIEW` uses the same multi-exchange shape to
-build shared understanding.
+`GRILL` stays active until its verdict or until you stop it. `INTERVIEW` uses
+the same multi-exchange shape to build shared understanding.
 
 ## The rules are short
 
@@ -185,12 +199,10 @@ build shared understanding.
 
 ## Add control when you need it
 
-The six-card starter hand covers the main thinking loop. Ten advanced cards
-let you choose the Binding, gather missing information, recommend actions,
-extend an idea, create an artifact, or change its presentation.
+Ten advanced cards select Bindings, gather information, recommend actions,
+create artifacts, or change a result's presentation.
 
-`/help` explains the deck and gives exact commands without playing a
-card:
+`/help` gives exact commands without playing a card:
 
 ```text
 /help
@@ -214,45 +226,34 @@ example:
 /explain + /with-diagrams
 ```
 
-`EXPLAIN` preserves the current result's claims and caveats. `DIAGRAMS` then
-adds the smallest useful visual.
+`EXPLAIN` preserves claims and caveats; `DIAGRAMS` adds one useful visual.
 
-`/further` pushes the current object one grounded creative leap beyond
-what it already says. It marks the extrapolation instead of presenting it as
-established fact, and it does not choose a direction:
+`/to-plan` prepares an accepted or provisional direction for review. It does
+not authorize execution.
 
-```text
-/distill + /further
-```
-
-`/to-plan` turns an accepted or provisional direction into a plan for
-review. It does not authorize execution.
-
-`/explain` can consume the result of any HACP deck. For example:
+`/explain` can consume any compatible HACP result:
 
 ```text
 $work-this-way:implement
 + $think-it-through:explain
 ```
 
-`IMPLEMENT` returns the observed implementation result. `EXPLAIN` turns that
-Working Object into a concise explanation without printing every intermediate
-step.
+`EXPLAIN` presents the observed implementation result without changing it.
 
 ## Under the deck
 
-Think It Through controls the requested shape of an agent response. Your
-methods, project rules, and tools still govern the substance and the available
-actions.
+Think It Through controls response shape. Methods, project rules, and tools
+govern substance and actions.
 
 The
 [Human-Agent Control Protocol](https://github.com/control-decks/human-agent-control-protocol)
-defines the shared rules beneath the deck: Binding, Working Object transfer,
-control state, duration, and visible resolution.
+Draft 0.4 loads the shared session rules: Binding, Working Object transfer,
+control state, duration, and visible resolution. Cards stay human-only; the
+agent cannot infer or replay them.
 
 | Layer | Owns |
 | --- | --- |
-| Think It Through | purpose, mental model, cards, and defaults |
+| Think It Through | purpose, card-local mental model, cards, and defaults |
 | HACP | Binding, object transfer, control state, order, and clearing |
 | Methods and project rules | reasoning and quality constraints |
 | Providers and tools | instruction loading, context, and actions |
@@ -260,8 +261,9 @@ control state, duration, and visible resolution.
 <details>
 <summary><strong>Complete card reference</strong></summary>
 
-The `deck` support skill initializes the shared deck model. `help` explains the
-deck. Neither is a card.
+There is no deck initializer or root resolver. `help` explains the deck but is
+not a card. `Conversation → Topics → Axes` appears only in the binding, recap,
+and help surfaces that need it.
 
 ### Operation cards
 
@@ -313,11 +315,11 @@ repeated instruction
 → keep, revise, merge, or remove
 ```
 
-A card contract records:
+A Draft 0.4 card contract records:
 
 ```text
-Use when → Default binding → Accepts → Effect → Result
-→ Duration → Limits → Format
+ID → Kind/Mode/Traits → Default Binding → Accepts
+→ Requires (when needed) → Produces → Duration → Effect → Limits
 ```
 
 A different deck can use the same interaction rules for another purpose and

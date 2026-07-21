@@ -1,22 +1,27 @@
 ---
 name: further
 description: Push the current thought or HACP Working Object one grounded creative leap beyond its present edge without broad brainstorming, choosing a direction, or inventing support. Use only when the user invokes further or explicitly asks to push the current idea further.
+disable-model-invocation: true
 ---
 
 # 🚀 Think Further
 
-**Use when:** The current object is useful but should be advanced beyond what
-it already states.
-**Default binding:** The current HACP Working Object, then the current thought.
-**Accepts:** Human content or any compatible HACP result.
-**Effect:** Find the strongest supported edge of the object and extend it by
-one non-obvious implication, combination, or possibility.
-**Result:** A `think-it-through/extended-thought` containing one grounded
-creative extension and a clear boundary around any extrapolation.
-**Duration:** One agent turn.
+**ID:** `think-it-through/further`\
+**HACP:** `0.4`\
+**Kind:** `operation`\
+**Mode:** `transform`\
+**Traits:** `read-only`, `semantic`, `creative-extension`\
+**Default Binding:** Current Working Object, then current thought\
+**Accepts:** `hacp/content`, `hacp/result`\
+**Requires:** `hacp/extendable-thought`\
+**Produces:** `think-it-through/extended-thought`\
+**Duration:** `once`
+
+**Effect:** Find the strongest supported edge of the bound object and extend it
+by one non-obvious implication, combination, or possibility.
+
 **Limits:** Do not scatter into broad ideation, invent evidence, restate the
-object, choose a direction, recommend actions, or become `DISCUSS`, `PROPOSE`,
-or `NEXT`.
+object, choose a direction, recommend actions, or continue beyond one leap.
 
 ## Resolve the leap
 
